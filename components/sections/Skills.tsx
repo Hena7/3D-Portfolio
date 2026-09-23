@@ -30,7 +30,7 @@ function SkillCard({ skill, index }: { skill: any; index: number }) {
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.5, delay: index * 0.04 }}
       whileHover={{ y: -6, scale: 1.03 }}
-      className="glass rounded-2xl p-5 flex flex-col items-center justify-center gap-4 group relative overflow-hidden border border-white/10 hover:border-[#00f5a0]/40 transition-all duration-300 hover:shadow-card-hover"
+      className="bg-white/80 dark:bg-transparent glass rounded-2xl p-5 flex flex-col items-center justify-center gap-4 group relative overflow-hidden border border-slate-200 dark:border-white/10 hover:border-[#00a86b]/40 dark:hover:border-[#00f5a0]/40 transition-all duration-300 hover:shadow-card-hover shadow-sm dark:shadow-none"
     >
       {/* Background glow on hover */}
       <div
@@ -42,7 +42,7 @@ function SkillCard({ skill, index }: { skill: any; index: number }) {
 
       {/* Icon with explicit brand color on hover */}
       <div
-        className="relative z-10 w-14 h-14 rounded-full flex items-center justify-center glass group-hover:shadow-[0_0_20px_rgba(0,245,160,0.25)] transition-all duration-300"
+        className="relative z-10 w-14 h-14 rounded-full flex items-center justify-center bg-slate-100/90 dark:glass group-hover:shadow-[0_0_20px_rgba(0,245,160,0.25)] transition-all duration-300"
         style={
           {
             "--hover-color": skill.color,
@@ -63,7 +63,7 @@ function SkillCard({ skill, index }: { skill: any; index: number }) {
          </span>
          
          {/* Level bar */}
-         <div className="w-full h-1.5 bg-white/10 rounded-full overflow-hidden mt-1">
+         <div className="w-full h-1.5 bg-slate-200 dark:bg-white/10 rounded-full overflow-hidden mt-1">
              <motion.div 
                 initial={{ width: 0 }}
                 whileInView={{ width: `${skill.level}%` }}
@@ -127,7 +127,7 @@ export function Skills() {
                 >
                   {category}
                 </div>
-                <div className="h-px bg-white/10 flex-1" />
+                <div className="h-px bg-slate-200 dark:bg-white/10 flex-1" />
               </motion.div>
 
               {/* Grid */}

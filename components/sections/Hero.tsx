@@ -58,7 +58,7 @@ export function Hero() {
 
       {/* ── Interactive 3D Scene Switcher HUD ── */}
       <div className="absolute right-4 sm:right-8 top-20 sm:top-24 z-20 flex flex-col items-end gap-1.5 pointer-events-auto">
-        <div className="flex items-center gap-1 p-1 rounded-xl glass border border-white/10 backdrop-blur-md shadow-card">
+        <div className="flex items-center gap-1 p-1 rounded-xl bg-white/80 dark:bg-surface/80 glass border border-slate-200 dark:border-white/10 backdrop-blur-md shadow-card transition-colors duration-300">
           {[
             { id: "core", label: "Quantum Core" },
             { id: "workspace", label: "DNA Helix" },
@@ -74,7 +74,7 @@ export function Hero() {
               className={`px-3 py-1.5 rounded-lg text-xs font-mono font-medium transition-all ${
                 sceneMode === mode.id
                   ? "bg-[#00f5a0] text-black shadow-neon-emerald font-semibold"
-                  : "text-text-secondary hover:text-white hover:bg-white/5"
+                  : "text-slate-600 dark:text-text-secondary hover:text-slate-900 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5"
               }`}
             >
               {mode.label}
@@ -82,18 +82,14 @@ export function Hero() {
           ))}
         </div>
         <div className="flex items-center gap-1.5 text-[10px] text-text-muted font-mono tracking-wider uppercase pr-1">
-          <Orbit size={11} className="text-[#00f5a0]" />
+          <Orbit size={11} className="text-[#00a86b] dark:text-[#00f5a0]" />
           <span>Interactive 3D // Drag to Orbit</span>
         </div>
       </div>
 
-      {/* ── Gradient fade to let text be readable ── */}
+      {/* ── Gradient fade to let text be readable (Theme Adaptive) ── */}
       <div
-        className="absolute inset-0 z-[1] pointer-events-none"
-        style={{
-          background:
-            "linear-gradient(90deg, #050510 38%, rgba(5,5,16,0.65) 65%, transparent 100%)",
-        }}
+        className="absolute inset-0 z-[1] pointer-events-none bg-gradient-to-r from-[#f0f4f8] via-[#f0f4f8]/85 to-transparent dark:from-[#050510] dark:via-[#050510]/80 dark:to-transparent transition-colors duration-300"
       />
 
       {/* ── Text Content ── */}
@@ -106,10 +102,10 @@ export function Hero() {
         >
           {/* Greeting badge */}
           <motion.div variants={itemVariants}>
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass border border-[#00f5a0]/40 text-[#00f5a0] text-sm font-medium mb-6 backdrop-blur-md">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/70 dark:bg-transparent glass border border-[#00a86b]/40 dark:border-[#00f5a0]/40 text-[#00a86b] dark:text-[#00f5a0] text-sm font-medium mb-6 backdrop-blur-md">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00f5a0] opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#00f5a0]" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#00a86b] dark:bg-[#00f5a0]" />
               </span>
               Available for opportunities // 2026
             </span>
@@ -120,14 +116,14 @@ export function Hero() {
             variants={itemVariants}
             className="font-display text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight mb-4 leading-none"
           >
-            <span className="block text-white">Hi, I&apos;m</span>
+            <span className="block text-slate-900 dark:text-white">Hi, I&apos;m</span>
             <span className="block gradient-text mt-1">{personalInfo.name}</span>
           </motion.h1>
 
           {/* Typing Role */}
           <motion.div
             variants={itemVariants}
-            className="font-mono text-xl sm:text-2xl text-[#00d4ff] mb-6 h-9"
+            className="font-mono text-xl sm:text-2xl text-[#0099bb] dark:text-[#00d4ff] mb-6 h-9"
           >
             <TypeAnimation
               sequence={[
@@ -145,7 +141,7 @@ export function Hero() {
               wrapper="span"
               speed={50}
               repeat={Infinity}
-              className="border-r-2 border-[#00f5a0] pr-1"
+              className="border-r-2 border-[#00a86b] dark:border-[#00f5a0] pr-1"
             />
           </motion.div>
 
@@ -194,7 +190,7 @@ export function Hero() {
                 aria-label={label}
                 onMouseEnter={() => sound.playHover()}
                 onClick={() => sound.playClick()}
-                className="w-10 h-10 glass rounded-xl flex items-center justify-center text-text-secondary hover:text-[#00f5a0] hover:border-[#00f5a0]/40 transition-all duration-200 hover:shadow-neon-emerald hover:scale-110"
+                className="w-10 h-10 bg-white/80 dark:bg-white/5 glass rounded-xl flex items-center justify-center text-text-secondary hover:text-[#00a86b] dark:hover:text-[#00f5a0] border border-slate-200 dark:border-white/10 hover:border-[#00a86b]/40 dark:hover:border-[#00f5a0]/40 transition-all duration-200 hover:shadow-neon-emerald hover:scale-110"
               >
                 <Icon size={18} />
               </a>

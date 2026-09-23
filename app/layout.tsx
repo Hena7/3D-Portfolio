@@ -4,6 +4,7 @@ import { SmoothScrollProvider } from "@/components/ui/SmoothScrollProvider";
 import { ScrollProgress } from "@/components/ui/ScrollProgress";
 import { Navbar } from "@/components/ui/Navbar";
 import { TelemetryHUD } from "@/components/ui/TelemetryHUD";
+import { ThemeProvider } from "@/components/ui/ThemeProvider";
 
 export const metadata: Metadata = {
   title: "Henock M. — Full Stack Developer",
@@ -39,53 +40,55 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body>
-        {/* Background layers */}
-        <div className="grid-bg" aria-hidden="true" />
-        <div className="noise" aria-hidden="true" />
+        <ThemeProvider>
+          {/* Background layers */}
+          <div className="grid-bg" aria-hidden="true" />
+          <div className="noise" aria-hidden="true" />
 
-        {/* Ambient glow orbs (Zero Purple: Cyan, Emerald, Amber) */}
-        <div
-          className="glow-orb"
-          style={{
-            width: "600px",
-            height: "600px",
-            top: "-200px",
-            left: "-100px",
-            background: "rgba(0, 212, 255, 0.08)",
-          }}
-          aria-hidden="true"
-        />
-        <div
-          className="glow-orb"
-          style={{
-            width: "550px",
-            height: "550px",
-            bottom: "10%",
-            right: "-150px",
-            background: "rgba(0, 245, 160, 0.08)",
-          }}
-          aria-hidden="true"
-        />
-        <div
-          className="glow-orb"
-          style={{
-            width: "400px",
-            height: "400px",
-            top: "45%",
-            left: "-150px",
-            background: "rgba(255, 184, 0, 0.04)",
-          }}
-          aria-hidden="true"
-        />
+          {/* Ambient glow orbs (Zero Purple: Cyan, Emerald, Amber) */}
+          <div
+            className="glow-orb"
+            style={{
+              width: "600px",
+              height: "600px",
+              top: "-200px",
+              left: "-100px",
+              background: "rgba(0, 212, 255, 0.08)",
+            }}
+            aria-hidden="true"
+          />
+          <div
+            className="glow-orb"
+            style={{
+              width: "550px",
+              height: "550px",
+              bottom: "10%",
+              right: "-150px",
+              background: "rgba(0, 245, 160, 0.08)",
+            }}
+            aria-hidden="true"
+          />
+          <div
+            className="glow-orb"
+            style={{
+              width: "400px",
+              height: "400px",
+              top: "45%",
+              left: "-150px",
+              background: "rgba(255, 184, 0, 0.04)",
+            }}
+            aria-hidden="true"
+          />
 
-        {/* Core UI */}
-        <SmoothScrollProvider />
-        <ScrollProgress />
-        <Navbar />
-        <TelemetryHUD />
+          {/* Core UI */}
+          <SmoothScrollProvider />
+          <ScrollProgress />
+          <Navbar />
+          <TelemetryHUD />
 
-        {/* Page Content */}
-        <main className="relative z-10">{children}</main>
+          {/* Page Content */}
+          <main className="relative z-10">{children}</main>
+        </ThemeProvider>
       </body>
     </html>
   );

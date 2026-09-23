@@ -134,7 +134,7 @@ export function About() {
       </div>
 
       {/* Secondary Row — Stats + Timeline */}
-      <div className="grid lg:grid-cols-2 gap-12 items-start pt-6 border-t border-white/5">
+      <div className="grid lg:grid-cols-2 gap-12 items-start pt-6 border-t border-slate-200 dark:border-white/5 transition-colors duration-300">
         {/* Stats */}
         <FadeIn delay={0.1}>
           <div className="grid grid-cols-2 gap-4">
@@ -156,20 +156,20 @@ export function About() {
               <FadeIn key={i} delay={i * 0.1}>
                 <div className="relative pl-12">
                   {/* Dot */}
-                  <div className="absolute left-0 top-1 w-8 h-8 rounded-full glass border border-[#00f5a0]/50 flex items-center justify-center">
+                  <div className="absolute left-0 top-1 w-8 h-8 rounded-full bg-white dark:bg-transparent glass border border-[#00a86b]/40 dark:border-[#00f5a0]/50 flex items-center justify-center shadow-sm dark:shadow-none">
                     {item.type === "work" ? (
-                      <Briefcase size={14} className="text-[#00f5a0]" />
+                      <Briefcase size={14} className="text-[#00a86b] dark:text-[#00f5a0]" />
                     ) : (
-                      <GraduationCap size={14} className="text-[#00d4ff]" />
+                      <GraduationCap size={14} className="text-[#0099bb] dark:text-[#00d4ff]" />
                     )}
                   </div>
 
                   <SpotlightCard className="p-4 group">
                     <div className="flex items-start justify-between gap-2 mb-1">
-                      <h3 className="font-semibold text-white text-sm group-hover:text-[#00f5a0] transition-colors">
+                      <h3 className="font-semibold text-slate-900 dark:text-white text-sm group-hover:text-[#00a86b] dark:group-hover:text-[#00f5a0] transition-colors">
                         {item.title}
                       </h3>
-                      <span className="font-mono text-xs text-[#00f5a0]/80 whitespace-nowrap">
+                      <span className="font-mono text-xs text-[#00a86b] dark:text-[#00f5a0]/80 whitespace-nowrap">
                         {item.year}
                       </span>
                     </div>

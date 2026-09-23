@@ -63,7 +63,7 @@ export function Projects() {
                 "relative px-5 py-2 rounded-xl text-sm font-medium transition-all duration-300 font-mono",
                 isActive
                   ? "text-black font-semibold"
-                  : "text-text-secondary hover:text-white glass-strong"
+                  : "text-slate-600 dark:text-text-secondary hover:text-slate-900 dark:hover:text-white glass-strong border border-slate-200 dark:border-white/10"
               )}
             >
               {isActive && (
@@ -92,15 +92,15 @@ export function Projects() {
               transition={{ duration: 0.4, delay: index * 0.08 }}
               className="h-full"
             >
-              <div className="group relative flex flex-col h-full glass rounded-3xl overflow-hidden border border-white/10 hover:border-[#00f5a0]/40 transition-all duration-500 hover:shadow-card-hover bg-[#080d12]/90">
+              <div className="group relative flex flex-col h-full rounded-3xl overflow-hidden border border-slate-200 dark:border-white/10 hover:border-[#00a86b]/40 dark:hover:border-[#00f5a0]/40 transition-all duration-500 hover:shadow-card-hover bg-white dark:bg-[#080d12]/90 shadow-lg dark:shadow-none">
                 {/* Simulated Browser Frame Header */}
-                <div className="px-4 py-2.5 bg-black/60 border-b border-white/10 flex items-center justify-between z-10">
+                <div className="px-4 py-2.5 bg-slate-100/90 dark:bg-black/60 border-b border-slate-200 dark:border-white/10 flex items-center justify-between z-10">
                   <div className="flex items-center gap-1.5">
                     <div className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
                     <div className="w-2.5 h-2.5 rounded-full bg-amber-500/70" />
                     <div className="w-2.5 h-2.5 rounded-full bg-[#00f5a0]/70" />
                   </div>
-                  <div className="text-[11px] font-mono text-text-muted px-2 py-0.5 rounded bg-white/5 border border-white/5 truncate max-w-[170px]">
+                  <div className="text-[11px] font-mono text-slate-500 dark:text-text-muted px-2 py-0.5 rounded bg-slate-200/60 dark:bg-white/5 border border-slate-300/60 dark:border-white/5 truncate max-w-[170px]">
                     https://{project.id}.dev
                   </div>
                   <div className="w-6" />
@@ -127,17 +127,17 @@ export function Projects() {
 
                   {/* Featured Tag */}
                   {project.featured && (
-                    <div className="absolute top-3 left-3 glass px-2.5 py-0.5 rounded-full text-[10px] font-semibold text-[#00f5a0] border border-[#00f5a0]/40 backdrop-blur-md">
+                    <div className="absolute top-3 left-3 glass px-2.5 py-0.5 rounded-full text-[10px] font-semibold text-[#00a86b] dark:text-[#00f5a0] border border-[#00a86b]/40 dark:border-[#00f5a0]/40 backdrop-blur-md">
                       ★ FEATURED
                     </div>
                   )}
                 </div>
 
                 {/* Content Box */}
-                <div className="p-6 md:p-7 flex-1 flex flex-col relative z-10 bg-[#070b0e]">
+                <div className="p-6 md:p-7 flex-1 flex flex-col relative z-10 bg-slate-50/70 dark:bg-[#070b0e] transition-colors duration-300">
                    {/* Top info line */}
                    <div className="flex items-center justify-between mb-3">
-                       <span className="font-mono text-xs text-[#00f5a0] tracking-wider uppercase font-semibold">
+                       <span className="font-mono text-xs text-[#00a86b] dark:text-[#00f5a0] tracking-wider uppercase font-semibold">
                            {project.category}
                        </span>
                        
@@ -148,7 +148,7 @@ export function Projects() {
                                target="_blank"
                                rel="noreferrer"
                                onMouseEnter={() => sound.playHover()}
-                               className="text-text-muted hover:text-white transition-colors p-1"
+                               className="text-slate-500 dark:text-text-muted hover:text-slate-900 dark:hover:text-white transition-colors p-1"
                                aria-label="GitHub Repository"
                              >
                                  <Github size={18} />
@@ -160,7 +160,7 @@ export function Projects() {
                                target="_blank"
                                rel="noreferrer"
                                onMouseEnter={() => sound.playHover()}
-                               className="text-text-muted hover:text-[#00f5a0] transition-colors p-1"
+                               className="text-slate-500 dark:text-text-muted hover:text-[#00a86b] dark:hover:text-[#00f5a0] transition-colors p-1"
                                aria-label="Live Demo"
                              >
                                  <ExternalLink size={18} />
@@ -170,20 +170,20 @@ export function Projects() {
                    </div>
 
                   {/* Title & Description */}
-                  <h3 className="font-display text-xl font-bold text-white mb-2 group-hover:text-[#00f5a0] transition-colors">
+                  <h3 className="font-display text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-[#00a86b] dark:group-hover:text-[#00f5a0] transition-colors">
                     {project.title}
                   </h3>
                   
-                  <p className="text-text-secondary text-sm leading-relaxed mb-6 flex-1">
+                  <p className="text-slate-600 dark:text-text-secondary text-sm leading-relaxed mb-6 flex-1">
                     {project.description}
                   </p>
 
                   {/* Tech Stack Tags */}
-                  <div className="flex flex-wrap gap-1.5 mt-auto pt-4 border-t border-white/5">
+                  <div className="flex flex-wrap gap-1.5 mt-auto pt-4 border-t border-slate-200 dark:border-white/5">
                     {project.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="px-2 py-0.5 text-[11px] rounded-md bg-white/5 text-[#00d4ff] font-mono border border-white/5"
+                        className="px-2 py-0.5 text-[11px] rounded-md bg-white dark:bg-white/5 text-[#0099bb] dark:text-[#00d4ff] font-mono border border-slate-200 dark:border-white/5 shadow-sm dark:shadow-none"
                       >
                         {tag}
                       </span>
