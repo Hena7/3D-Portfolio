@@ -54,6 +54,14 @@ export function Footer() {
             LinkedIn
           </a>
           <a
+            href={personalInfo.telegram}
+            target="_blank"
+            rel="noreferrer"
+            className="text-slate-600 dark:text-text-secondary hover:text-slate-900 dark:hover:text-white transition-colors"
+          >
+            Telegram
+          </a>
+          <a
             href={`mailto:${personalInfo.email}`}
             className="text-slate-600 dark:text-text-secondary hover:text-slate-900 dark:hover:text-white transition-colors"
           >

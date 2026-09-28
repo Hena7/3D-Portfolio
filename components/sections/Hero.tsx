@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
 import { TypeAnimation } from "react-type-animation";
-import { ArrowDown, Github, Linkedin, Mail, Orbit } from "lucide-react";
+import { ArrowDown, Github, Linkedin, Mail, Send, Orbit } from "lucide-react";
 import { personalInfo } from "@/lib/data";
 import { sound } from "@/lib/audio";
 import type { SceneMode } from "@/components/3d/HeroScene";
@@ -18,6 +18,7 @@ const HeroScene = dynamic(
 const socialLinks = [
   { href: personalInfo.github, Icon: Github, label: "GitHub" },
   { href: personalInfo.linkedin, Icon: Linkedin, label: "LinkedIn" },
+  { href: personalInfo.telegram, Icon: Send, label: "Telegram" },
   { href: `mailto:${personalInfo.email}`, Icon: Mail, label: "Email" },
 ];
 
@@ -71,11 +72,10 @@ export function Hero() {
                 setSceneMode(mode.id as SceneMode);
               }}
               onMouseEnter={() => sound.playHover()}
-              className={`px-3 py-1.5 rounded-lg text-xs font-mono font-medium transition-all ${
-                sceneMode === mode.id
+              className={`px-3 py-1.5 rounded-lg text-xs font-mono font-medium transition-all ${sceneMode === mode.id
                   ? "bg-[#00f5a0] text-black shadow-neon-emerald font-semibold"
                   : "text-slate-600 dark:text-text-secondary hover:text-slate-900 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5"
-              }`}
+                }`}
             >
               {mode.label}
             </button>
@@ -101,7 +101,7 @@ export function Hero() {
           className="max-w-2xl"
         >
           {/* Greeting badge */}
-          <motion.div variants={itemVariants}>
+          {/* <motion.div variants={itemVariants}>
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/70 dark:bg-transparent glass border border-[#00a86b]/40 dark:border-[#00f5a0]/40 text-[#00a86b] dark:text-[#00f5a0] text-sm font-medium mb-6 backdrop-blur-md">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00f5a0] opacity-75" />
@@ -109,7 +109,7 @@ export function Hero() {
               </span>
               Available for opportunities // 2026
             </span>
-          </motion.div>
+          </motion.div> */}
 
           {/* Name */}
           <motion.h1

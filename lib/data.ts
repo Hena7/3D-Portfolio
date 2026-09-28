@@ -2,23 +2,26 @@
 // Edit this file to customize all portfolio content.
 
 export const personalInfo = {
-  name: "Henock M.",
+  name: "Henok Mekonnen",
   title: "Full Stack Developer",
   tagline: "Building digital experiences that live at the intersection of design and engineering.",
-  email: "henock@example.com",
-  github: "https://github.com/henockm",
-  linkedin: "https://linkedin.com/in/henockm",
-  twitter: "https://twitter.com/henockm",
+  email: "henockmekonnen105@gmail.com",
+  phone: "+251 90 430 7038",
+  phoneRaw: "+251904307038",
+  github: "https://github.com/Hena7",
+  linkedin: "https://www.linkedin.com/in/henok-mekonnen-734731362",
+  telegram: "https://t.me/hena2129",
+  telegramHandle: "@hena2129",
   location: "Addis Ababa, Ethiopia",
   avatar: "/avatar.jpg",
-  resumeUrl: "/resume.pdf",
+  resumeUrl: "/Henok_Mekonnen_Fullstack_Resume.pdf",
 };
 
 // Typing animation roles
 export const roles = [
   "Full Stack Developer",
   "React & Next.js Engineer",
-  "Spring Boot Backend Dev",
+  "Node.js & Spring Boot Dev",
   "UI/UX Enthusiast",
   "Open Source Contributor",
 ];
@@ -42,9 +45,9 @@ export const skills: Skill[] = [
   { name: "Three.js", icon: "SiThreedotjs", category: "Frontend", level: 72, color: "#ffffff" },
   // Backend
   { name: "Spring Boot", icon: "SiSpring", category: "Backend", level: 88, color: "#6DB33F" },
-  { name: "Node.js", icon: "SiNodedotjs", category: "Backend", level: 82, color: "#339933" },
+  { name: "Node.js", icon: "SiNodedotjs", category: "Backend", level: 85, color: "#339933" },
   { name: "PostgreSQL", icon: "SiPostgresql", category: "Backend", level: 85, color: "#4169E1" },
-  { name: "MongoDB", icon: "SiMongodb", category: "Backend", level: 78, color: "#47A248" },
+  { name: "MongoDB", icon: "SiMongodb", category: "Backend", level: 82, color: "#47A248" },
   { name: "Redis", icon: "SiRedis", category: "Backend", level: 70, color: "#DC382D" },
   { name: "Java", icon: "SiOpenjdk", category: "Backend", level: 85, color: "#ED8B00" },
   // DevOps
@@ -64,87 +67,130 @@ export interface Project {
   id: string;
   title: string;
   description: string;
-  longDescription: string;
+  longDescription?: string;
   tags: string[];
   github: string;
   live: string;
+  demoLink?: string;
+  githubLink?: string;
+  image?: string;
   featured: boolean;
-  category: "Web App" | "API" | "Mobile" | "AI/ML" | "Other";
+  category: "Full-Stack" | "Frontend" | "Backend" | string;
   gradient: string;
 }
 
 export const projects: Project[] = [
   {
-    id: "erp-hr",
-    title: "ERP HR System",
-    description: "Full-featured HR management platform with Education & Training modules, Keycloak SSO, and role-based access control.",
-    longDescription: "A comprehensive enterprise resource planning system for human resources. Built with Next.js frontend and Spring Boot backend. Features include employee management, education opportunity tracking, training requests, multi-level approval workflows, and Keycloak integration for secure authentication.",
-    tags: ["Next.js", "Spring Boot", "Keycloak", "PostgreSQL", "TypeScript"],
-    github: "https://github.com/henockm/erp-hr",
-    live: "#",
+    id: "playstation-tournament",
+    title: "PlayStation Tournament App",
+    description:
+      "Competitive gaming platform using Swiss-system pairing. Features random pairing, ranking system, live leaderboard, and detailed player dashboards.",
+    tags: ["React", "TailwindCSS", "Prisma", "Node.js", "Socket.io"],
+    category: "Full-Stack",
+    live: "https://bekisha.vercel.app",
+    github: "https://github.com/Hena7/PlayStation-Tournament-App",
+    demoLink: "https://bekisha.vercel.app",
+    githubLink: "https://github.com/Hena7/PlayStation-Tournament-App",
+    image:
+      "https://api.microlink.io/?url=https://bekisha.vercel.app&screenshot=true&meta=false&embed=screenshot.url",
     featured: true,
-    category: "Web App",
-    gradient: "from-cyan-500/20 to-emerald-500/20",
-  },
-  {
-    id: "portfolio-3d",
-    title: "3D Portfolio",
-    description: "Immersive developer portfolio with React Three Fiber, Framer Motion animations, and a futuristic design system.",
-    longDescription: "This very portfolio! Built with Next.js 15, React Three Fiber for 3D elements, Framer Motion for smooth animations, and a custom dark futuristic design system using Tailwind CSS.",
-    tags: ["Next.js", "Three.js", "Framer Motion", "TypeScript", "Tailwind"],
-    github: "https://github.com/henockm/portfolio-3d",
-    live: "#",
-    featured: true,
-    category: "Web App",
-    gradient: "from-emerald-500/20 to-cyan-500/20",
-  },
-  {
-    id: "chat-app",
-    title: "Real-time Chat App",
-    description: "Socket.io powered chat application with rooms, file sharing, and end-to-end encryption.",
-    longDescription: "A full-stack real-time messaging application featuring WebSocket communication, private and group rooms, file attachments, message encryption, and user presence indicators.",
-    tags: ["React", "Node.js", "Socket.io", "MongoDB", "Redis"],
-    github: "https://github.com/henockm/chat-app",
-    live: "#",
-    featured: true,
-    category: "Web App",
     gradient: "from-cyan-500/20 to-blue-500/20",
   },
   {
-    id: "api-gateway",
-    title: "Microservices API Gateway",
-    description: "Spring Cloud Gateway with service discovery, load balancing, circuit breakers, and JWT auth.",
-    longDescription: "A production-grade API gateway built with Spring Cloud. Features dynamic routing, Eureka service discovery, Resilience4j circuit breakers, rate limiting, and JWT-based authentication.",
-    tags: ["Spring Boot", "Spring Cloud", "Docker", "PostgreSQL", "Java"],
-    github: "https://github.com/henockm/api-gateway",
-    live: "#",
-    featured: false,
-    category: "API",
-    gradient: "from-emerald-500/20 to-cyan-500/20",
+    id: "maedot-consulting",
+    title: "Maedot Consulting",
+    description:
+      "A comprehensive construction consulting management app that organizes clients, projects, and analytics dashboards. Includes robust admin features for efficient management.",
+    tags: ["React", "Node.js", "MongoDB", "Express"],
+    category: "Full-Stack",
+    live: "https://maedot-consultant.vercel.app",
+    github: "https://github.com/Hena7/Maedot-Consulting",
+    demoLink: "https://maedot-consultant.vercel.app",
+    githubLink: "https://github.com/Hena7/Maedot-Consulting",
+    image:
+      "https://api.microlink.io/?url=https://maedot-consultant.vercel.app&screenshot=true&meta=false&embed=screenshot.url",
+    featured: true,
+    gradient: "from-emerald-500/20 to-teal-500/20",
   },
   {
-    id: "ai-dashboard",
-    title: "AI Analytics Dashboard",
-    description: "React dashboard integrating OpenAI APIs for data analysis, trend prediction, and automated report generation.",
-    longDescription: "An intelligent analytics dashboard that leverages OpenAI's API to analyze business data, identify patterns, generate natural language reports, and provide actionable insights through interactive charts.",
-    tags: ["React", "OpenAI", "Python", "FastAPI", "Chart.js"],
-    github: "https://github.com/henockm/ai-dashboard",
-    live: "#",
-    featured: false,
-    category: "AI/ML",
-    gradient: "from-amber-500/20 to-emerald-500/20",
+    id: "yzezun-delivery",
+    title: "Yzezun Delivery System",
+    description:
+      "A food delivery platform featuring admin and customer dashboards, real-time order tracking, and efficient delivery management systems.",
+    tags: ["Next.js", "TailwindCSS", "Firebase", "Google Maps API"],
+    category: "Full-Stack",
+    live: "https://yzezun.vercel.app",
+    github: "https://github.com/Hena7/Yzezun-delivery",
+    demoLink: "https://yzezun.vercel.app",
+    githubLink: "https://github.com/Hena7/Yzezun-delivery",
+    image:
+      "https://api.microlink.io/?url=https://yzezun.vercel.app&screenshot=true&meta=false&embed=screenshot.url",
+    featured: true,
+    gradient: "from-amber-500/20 to-orange-500/20",
   },
   {
-    id: "ecommerce",
-    title: "E-Commerce Platform",
-    description: "Full-stack e-commerce solution with payment integration, inventory management, and admin panel.",
-    longDescription: "A scalable e-commerce platform with product catalogue, cart & checkout, Stripe payment integration, order tracking, inventory management, and a comprehensive admin dashboard.",
-    tags: ["Next.js", "Stripe", "PostgreSQL", "Prisma", "shadcn/ui"],
-    github: "https://github.com/henockm/ecommerce",
-    live: "#",
+    id: "easy-rent-x",
+    title: "EasyRentX",
+    description:
+      "A modern car rental application with advanced search, booking management, and user-friendly interface for seamless vehicle rental experiences.",
+    tags: ["React", "TypeScript", "TailwindCSS", "Prisma"],
+    category: "Full-Stack",
+    live: "https://easy-rent-h.vercel.app",
+    github: "https://github.com/Hena7/EasyRentX",
+    demoLink: "https://easy-rent-h.vercel.app",
+    githubLink: "https://github.com/Hena7/EasyRentX",
+    image:
+      "https://api.microlink.io/?url=https://easy-rent-h.vercel.app&screenshot=true&meta=false&embed=screenshot.url",
+    featured: true,
+    gradient: "from-cyan-500/20 to-emerald-500/20",
+  },
+  {
+    id: "heni-chat",
+    title: "HeniChat",
+    description:
+      "A modern real-time chat application built with Next.js, Zustand, and Firebase. Features clean UI, responsive design, chat lists, message bubbles, and real-time syncing. Designed to showcase UI architecture and dynamic state management.",
+    tags: ["Next.js", "TailwindCSS", "ShadCN UI", "Firebase", "Zustand"],
+    category: "Frontend",
+    live: "https://heni-chat-h.vercel.app",
+    github: "https://github.com/Hena7/HeniChat",
+    demoLink: "https://heni-chat-h.vercel.app",
+    githubLink: "https://github.com/Hena7/HeniChat",
+    image:
+      "https://api.microlink.io/?url=https://heni-chat-h.vercel.app&screenshot=true&meta=false&embed=screenshot.url",
+    featured: true,
+    gradient: "from-blue-500/20 to-cyan-500/20",
+  },
+  {
+    id: "lena-garment-store",
+    title: "Lena Garment Store",
+    description:
+      "An elegant e-commerce platform for luxury fashion items featuring a modern shopping experience, product catalog, and streamlined checkout process.",
+    tags: ["Next.js", "TypeScript", "TailwindCSS", "Stripe"],
+    category: "Full-Stack",
+    live: "https://lena-luxe-wear.vercel.app",
+    github: "https://github.com/Hena7/Lena-garment-store",
+    demoLink: "https://lena-luxe-wear.vercel.app",
+    githubLink: "https://github.com/Hena7/Lena-garment-store",
+    image:
+      "https://api.microlink.io/?url=https://lena-luxe-wear.vercel.app&screenshot=true&meta=false&embed=screenshot.url",
+    featured: true,
+    gradient: "from-pink-500/20 to-rose-500/20",
+  },
+  {
+    id: "property-rental-platform",
+    title: "Property Rental Platform",
+    description:
+      "A Next.js-powered rental platform with comprehensive property listings, booking system, and intuitive user experience for property rentals.",
+    tags: ["Next.js", "React", "TailwindCSS", "MongoDB"],
+    category: "Full-Stack",
+    live: "https://easy-rent-x.vercel.app",
+    github: "https://github.com/Hena7/EasyRent",
+    demoLink: "https://easy-rent-x.vercel.app",
+    githubLink: "https://github.com/Hena7/EasyRent",
+    image:
+      "https://api.microlink.io/?url=https://easy-rent-x.vercel.app&screenshot=true&meta=false&embed=screenshot.url",
     featured: false,
-    category: "Web App",
-    gradient: "from-amber-500/20 to-cyan-500/20",
+    gradient: "from-teal-500/20 to-cyan-500/20",
   },
 ];
 

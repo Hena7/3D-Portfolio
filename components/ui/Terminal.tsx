@@ -91,11 +91,14 @@ export function Terminal() {
 
       case "projects":
         output = (
-          <div className="text-xs space-y-1 text-slate-600 dark:text-text-secondary">
-            <p>1. <strong className="text-slate-900 dark:text-white">ERP HR System</strong> — Enterprise HR & SSO platform (Next.js + Spring Boot)</p>
-            <p>2. <strong className="text-slate-900 dark:text-white">3D Portfolio</strong> — React Three Fiber + Next.js 15 showcase</p>
-            <p>3. <strong className="text-slate-900 dark:text-white">Microservices Gateway</strong> — Spring Cloud with resilience & discovery</p>
-            <p className="text-text-muted text-[11px] mt-1">Scroll down to view full interactive live cards.</p>
+          <div className="text-xs space-y-1.5 text-slate-600 dark:text-text-secondary">
+            <p>1. <strong className="text-slate-900 dark:text-white">PlayStation Tournament App</strong> — Swiss-system gaming platform (<a href="https://bekisha.vercel.app" target="_blank" rel="noreferrer" className="text-[#0099bb] dark:text-[#00d4ff] underline">bekisha.vercel.app</a>)</p>
+            <p>2. <strong className="text-slate-900 dark:text-white">Maedot Consulting</strong> — Construction consulting & analytics (<a href="https://maedot-consultant.vercel.app" target="_blank" rel="noreferrer" className="text-[#0099bb] dark:text-[#00d4ff] underline">maedot-consultant.vercel.app</a>)</p>
+            <p>3. <strong className="text-slate-900 dark:text-white">Yzezun Delivery System</strong> — Real-time food delivery tracking (<a href="https://yzezun.vercel.app" target="_blank" rel="noreferrer" className="text-[#0099bb] dark:text-[#00d4ff] underline">yzezun.vercel.app</a>)</p>
+            <p>4. <strong className="text-slate-900 dark:text-white">EasyRentX</strong> — Vehicle rental & booking system (<a href="https://easy-rent-h.vercel.app" target="_blank" rel="noreferrer" className="text-[#0099bb] dark:text-[#00d4ff] underline">easy-rent-h.vercel.app</a>)</p>
+            <p>5. <strong className="text-slate-900 dark:text-white">HeniChat</strong> — Real-time chat with Next.js & Firebase (<a href="https://heni-chat-h.vercel.app" target="_blank" rel="noreferrer" className="text-[#0099bb] dark:text-[#00d4ff] underline">heni-chat-h.vercel.app</a>)</p>
+            <p>6. <strong className="text-slate-900 dark:text-white">Lena Garment Store</strong> — Luxury e-commerce store with Stripe (<a href="https://lena-luxe-wear.vercel.app" target="_blank" rel="noreferrer" className="text-[#0099bb] dark:text-[#00d4ff] underline">lena-luxe-wear.vercel.app</a>)</p>
+            <p className="text-text-muted text-[11px] mt-1">Scroll down to view all 7 live project showcase cards.</p>
           </div>
         );
         break;
@@ -106,7 +109,10 @@ export function Terminal() {
           <div className="text-xs space-y-1">
             <p className="text-[#00a86b] dark:text-[#00f5a0] font-semibold">Status: Available for Full-Time Roles & Consulting</p>
             <p className="text-slate-600 dark:text-text-secondary">Email: <a href={`mailto:${personalInfo.email}`} className="text-[#0099bb] dark:text-[#00d4ff] underline">{personalInfo.email}</a></p>
+            <p className="text-slate-600 dark:text-text-secondary">Phone: <a href={`tel:${personalInfo.phoneRaw}`} className="text-[#00a86b] dark:text-[#00f5a0] underline">{personalInfo.phone}</a></p>
+            <p className="text-slate-600 dark:text-text-secondary">Telegram: <a href={personalInfo.telegram} target="_blank" rel="noreferrer" className="text-[#0099bb] dark:text-[#00d4ff] underline">{personalInfo.telegramHandle}</a></p>
             <p className="text-slate-600 dark:text-text-secondary">GitHub: <a href={personalInfo.github} target="_blank" rel="noreferrer" className="text-slate-900 dark:text-white underline">{personalInfo.github}</a></p>
+            <p className="text-slate-600 dark:text-text-secondary">LinkedIn: <a href={personalInfo.linkedin} target="_blank" rel="noreferrer" className="text-slate-900 dark:text-white underline">{personalInfo.linkedin}</a></p>
           </div>
         );
         break;

@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { sound } from "@/lib/audio";
 import { ThemeToggle } from "./ThemeToggle";
+import { personalInfo } from "@/lib/data";
 
 const navLinks = [
   { label: "Home", href: "#hero" },
@@ -113,7 +114,7 @@ export function Navbar() {
         <div className="hidden md:flex items-center gap-2">
           <ThemeToggle />
           <a
-            href="/resume.pdf"
+            href={personalInfo.resumeUrl}
             target="_blank"
             rel="noopener noreferrer"
             onMouseEnter={() => sound.playHover()}
@@ -171,7 +172,7 @@ export function Navbar() {
             <div className="flex items-center justify-between">
               <ThemeToggle />
               <a
-                href="/resume.pdf"
+                href={personalInfo.resumeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-outline text-center text-sm"

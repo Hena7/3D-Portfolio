@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { personalInfo } from "@/lib/data";
-import { Mail, MapPin, Send, CheckCircle2 } from "lucide-react";
+import { Mail, MapPin, Send, Phone, Github, Linkedin, CheckCircle2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { sound } from "@/lib/audio";
 
@@ -36,47 +36,128 @@ export function Contact() {
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
         >
-          <span className="font-mono text-[#00f5a0] text-sm tracking-widest uppercase mb-4 block">
+          <span className="font-mono text-[#00a86b] dark:text-[#00f5a0] text-sm tracking-widest uppercase mb-4 block">
             04. What's Next?
           </span>
           <h2 className="section-title mb-6">
             Let's build something <span className="gradient-text">exceptional</span> together.
           </h2>
-          <p className="text-text-secondary text-lg leading-relaxed mb-10 max-w-md">
+          <p className="text-text-secondary text-lg leading-relaxed mb-8 max-w-md">
             Whether you have an enterprise project in mind, need help scaling 
-            your architecture, or want to discuss full-stack opportunities, my inbox is open.
+            your architecture, or want to discuss full-stack opportunities, my inbox and direct lines are open.
           </p>
 
-          <div className="space-y-6">
+          <div className="grid sm:grid-cols-2 gap-4">
+            {/* Email */}
             <div 
-              className="flex items-center gap-4 group cursor-pointer"
+              className="flex items-center gap-3.5 p-3.5 rounded-2xl bg-white/70 dark:bg-white/5 border border-slate-200 dark:border-white/10 shadow-sm dark:shadow-none hover:border-[#00a86b]/40 dark:hover:border-[#00f5a0]/40 transition-all duration-300 group cursor-pointer"
               onMouseEnter={() => sound.playHover()}
             >
-              <div className="w-12 h-12 rounded-2xl bg-white dark:bg-white/5 glass border border-slate-200 dark:border-white/10 flex items-center justify-center text-[#0099bb] dark:text-[#00d4ff] group-hover:bg-[#0099bb]/10 dark:group-hover:bg-[#00d4ff]/10 transition-colors shadow-sm dark:shadow-none">
-                <Mail size={20} />
+              <div className="w-11 h-11 rounded-xl bg-slate-100 dark:bg-white/5 flex items-center justify-center text-[#0099bb] dark:text-[#00d4ff] group-hover:scale-110 transition-transform">
+                <Mail size={18} />
               </div>
-              <div>
-                <p className="text-sm text-text-muted mb-1 font-mono">Email Channel</p>
-                <a href={`mailto:${personalInfo.email}`} className="text-slate-900 dark:text-white font-medium hover:text-[#00a86b] dark:hover:text-[#00f5a0] transition-colors">
+              <div className="min-w-0 flex-1">
+                <p className="text-[11px] text-text-muted font-mono uppercase tracking-wider">Email</p>
+                <a 
+                  href={`mailto:${personalInfo.email}`} 
+                  className="text-xs sm:text-sm text-slate-900 dark:text-white font-medium hover:text-[#00a86b] dark:hover:text-[#00f5a0] transition-colors truncate block"
+                  title={personalInfo.email}
+                >
                   {personalInfo.email}
                 </a>
               </div>
             </div>
-            
+
+            {/* Phone */}
             <div 
-              className="flex items-center gap-4 group"
+              className="flex items-center gap-3.5 p-3.5 rounded-2xl bg-white/70 dark:bg-white/5 border border-slate-200 dark:border-white/10 shadow-sm dark:shadow-none hover:border-[#00a86b]/40 dark:hover:border-[#00f5a0]/40 transition-all duration-300 group cursor-pointer"
               onMouseEnter={() => sound.playHover()}
             >
-              <div className="w-12 h-12 rounded-2xl bg-white dark:bg-white/5 glass border border-slate-200 dark:border-white/10 flex items-center justify-center text-[#00a86b] dark:text-[#00f5a0] group-hover:bg-[#00a86b]/10 dark:group-hover:bg-[#00f5a0]/10 transition-colors shadow-sm dark:shadow-none">
-                <MapPin size={20} />
+              <div className="w-11 h-11 rounded-xl bg-slate-100 dark:bg-white/5 flex items-center justify-center text-[#00a86b] dark:text-[#00f5a0] group-hover:scale-110 transition-transform">
+                <Phone size={18} />
               </div>
-              <div>
-                <p className="text-sm text-text-muted mb-1 font-mono">Location</p>
-                <p className="text-slate-900 dark:text-white font-medium">
+              <div className="min-w-0 flex-1">
+                <p className="text-[11px] text-text-muted font-mono uppercase tracking-wider">Phone</p>
+                <a 
+                  href={`tel:${personalInfo.phoneRaw}`} 
+                  className="text-xs sm:text-sm text-slate-900 dark:text-white font-medium hover:text-[#00a86b] dark:hover:text-[#00f5a0] transition-colors truncate block"
+                >
+                  {personalInfo.phone}
+                </a>
+              </div>
+            </div>
+
+            {/* Telegram */}
+            <div 
+              className="flex items-center gap-3.5 p-3.5 rounded-2xl bg-white/70 dark:bg-white/5 border border-slate-200 dark:border-white/10 shadow-sm dark:shadow-none hover:border-[#00a86b]/40 dark:hover:border-[#00f5a0]/40 transition-all duration-300 group cursor-pointer"
+              onMouseEnter={() => sound.playHover()}
+            >
+              <div className="w-11 h-11 rounded-xl bg-slate-100 dark:bg-white/5 flex items-center justify-center text-[#0099bb] dark:text-[#00d4ff] group-hover:scale-110 transition-transform">
+                <Send size={18} />
+              </div>
+              <div className="min-w-0 flex-1">
+                <p className="text-[11px] text-text-muted font-mono uppercase tracking-wider">Telegram</p>
+                <a 
+                  href={personalInfo.telegram} 
+                  target="_blank" 
+                  rel="noreferrer" 
+                  className="text-xs sm:text-sm text-slate-900 dark:text-white font-medium hover:text-[#00a86b] dark:hover:text-[#00f5a0] transition-colors truncate block"
+                >
+                  {personalInfo.telegramHandle}
+                </a>
+              </div>
+            </div>
+
+            {/* Location */}
+            <div 
+              className="flex items-center gap-3.5 p-3.5 rounded-2xl bg-white/70 dark:bg-white/5 border border-slate-200 dark:border-white/10 shadow-sm dark:shadow-none group"
+              onMouseEnter={() => sound.playHover()}
+            >
+              <div className="w-11 h-11 rounded-xl bg-slate-100 dark:bg-white/5 flex items-center justify-center text-[#d97706] dark:text-[#ffb800] group-hover:scale-110 transition-transform">
+                <MapPin size={18} />
+              </div>
+              <div className="min-w-0 flex-1">
+                <p className="text-[11px] text-text-muted font-mono uppercase tracking-wider">Location</p>
+                <p className="text-xs sm:text-sm text-slate-900 dark:text-white font-medium truncate">
                   {personalInfo.location}
                 </p>
               </div>
             </div>
+          </div>
+
+          {/* Social Profiles Row */}
+          <div className="flex items-center gap-3 mt-6 pt-6 border-t border-slate-200 dark:border-white/5">
+            <span className="text-xs font-mono text-text-muted uppercase tracking-wider mr-1">Profiles:</span>
+            <a
+              href={personalInfo.github}
+              target="_blank"
+              rel="noreferrer"
+              onMouseEnter={() => sound.playHover()}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 text-xs font-mono font-medium text-slate-700 dark:text-text-secondary hover:text-[#00a86b] dark:hover:text-[#00f5a0] hover:border-[#00a86b]/40 transition-colors shadow-sm dark:shadow-none"
+            >
+              <Github size={14} />
+              <span>GitHub</span>
+            </a>
+            <a
+              href={personalInfo.linkedin}
+              target="_blank"
+              rel="noreferrer"
+              onMouseEnter={() => sound.playHover()}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 text-xs font-mono font-medium text-slate-700 dark:text-text-secondary hover:text-[#0099bb] dark:hover:text-[#00d4ff] hover:border-[#0099bb]/40 transition-colors shadow-sm dark:shadow-none"
+            >
+              <Linkedin size={14} />
+              <span>LinkedIn</span>
+            </a>
+            <a
+              href={personalInfo.telegram}
+              target="_blank"
+              rel="noreferrer"
+              onMouseEnter={() => sound.playHover()}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 text-xs font-mono font-medium text-slate-700 dark:text-text-secondary hover:text-[#0099bb] dark:hover:text-[#00d4ff] hover:border-[#0099bb]/40 transition-colors shadow-sm dark:shadow-none"
+            >
+              <Send size={14} />
+              <span>Telegram</span>
+            </a>
           </div>
         </motion.div>
 

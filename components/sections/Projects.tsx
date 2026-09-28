@@ -8,14 +8,15 @@ import { cn } from "@/lib/utils";
 import { sound } from "@/lib/audio";
 
 // ─── Filter Tabs ───
-const categories = ["All", "Web App", "API", "Mobile", "AI/ML", "Other"];
+const categories = ["All", "Full-Stack", "Frontend", "Backend"];
 
 export function Projects() {
   const [activeCategory, setActiveCategory] = useState("All");
 
-  const filteredProjects = projects.filter((p) =>
-    activeCategory === "All" ? true : p.category === activeCategory
-  );
+  const filteredProjects =
+    activeCategory === "All"
+      ? projects
+      : projects.filter((project) => project.category === activeCategory);
 
   return (
     <section id="projects" className="section-padding container-max relative z-20">
@@ -26,14 +27,14 @@ export function Projects() {
         transition={{ duration: 0.7 }}
         className="mb-12 text-center"
       >
-        <span className="font-mono text-[#00f5a0] text-sm tracking-widest uppercase mb-2 block">
+        <span className="font-mono text-[#00a86b] dark:text-[#00f5a0] text-sm tracking-widest uppercase mb-2 block">
           03. Showcase
         </span>
         <h2 className="section-title">
           Featured <span className="gradient-text">Projects</span>
         </h2>
         <p className="section-subtitle mx-auto">
-          High-performance production systems and digital experiences
+          Production systems, real-time architectures, and interactive digital experiences
         </p>
       </motion.div>
 
@@ -100,36 +101,58 @@ export function Projects() {
                     <div className="w-2.5 h-2.5 rounded-full bg-amber-500/70" />
                     <div className="w-2.5 h-2.5 rounded-full bg-[#00f5a0]/70" />
                   </div>
-                  <div className="text-[11px] font-mono text-slate-500 dark:text-text-muted px-2 py-0.5 rounded bg-slate-200/60 dark:bg-white/5 border border-slate-300/60 dark:border-white/5 truncate max-w-[170px]">
-                    https://{project.id}.dev
+                  <div className="text-[11px] font-mono text-slate-500 dark:text-text-muted px-2 py-0.5 rounded bg-slate-200/60 dark:bg-white/5 border border-slate-300/60 dark:border-white/5 truncate max-w-[210px]">
+                    {project.live && project.live !== "#"
+                      ? project.live.replace(/^https?:\/\//, "")
+                      : `${project.id}.vercel.app`}
                   </div>
                   <div className="w-6" />
                 </div>
 
-                {/* Abstract Visual Header Banner */}
-                <div
-                  className={cn(
-                    "h-44 relative overflow-hidden bg-gradient-to-br flex items-center justify-center",
-                    project.gradient || "from-cyan-500/20 to-emerald-500/20"
-                  )}
-                >
-                  <div className="absolute inset-0 bg-[radial-gradient(#00f5a0_1px,transparent_1px)] [background-size:16px_16px] opacity-20" />
-                  
-                  {/* Category blueprint illustration */}
-                  <div className="relative z-10 flex flex-col items-center justify-center p-4 text-center">
-                    <div className="w-14 h-14 rounded-2xl glass border border-white/15 flex items-center justify-center text-[#00f5a0] group-hover:scale-110 transition-transform duration-500 shadow-neon-emerald">
-                      <Code2 size={28} />
+                {/* Project Screenshot / Visual Header Banner */}
+                <div className="h-48 relative overflow-hidden bg-slate-950 group/img">
+                  {project.image ? (
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      loading="lazy"
+                      className="w-full h-full object-cover object-top transition-transform duration-700 group-hover/img:scale-105"
+                    />
+                  ) : (
+                    <div
+                      className={cn(
+                        "w-full h-full flex items-center justify-center bg-gradient-to-br",
+                        project.gradient || "from-cyan-500/20 to-emerald-500/20"
+                      )}
+                    >
+                      <div className="w-14 h-14 rounded-2xl glass border border-white/15 flex items-center justify-center text-[#00f5a0]">
+                        <Code2 size={28} />
+                      </div>
                     </div>
-                    <span className="font-mono text-xs text-white/90 mt-2 font-semibold tracking-wider">
-                      {project.title.toUpperCase()}
-                    </span>
-                  </div>
+                  )}
+
+                  {/* Gradient overlay for readability */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-transparent pointer-events-none" />
 
                   {/* Featured Tag */}
                   {project.featured && (
-                    <div className="absolute top-3 left-3 glass px-2.5 py-0.5 rounded-full text-[10px] font-semibold text-[#00a86b] dark:text-[#00f5a0] border border-[#00a86b]/40 dark:border-[#00f5a0]/40 backdrop-blur-md">
+                    <div className="absolute top-3 left-3 glass px-2.5 py-0.5 rounded-full text-[10px] font-semibold text-[#00a86b] dark:text-[#00f5a0] border border-[#00a86b]/40 dark:border-[#00f5a0]/40 backdrop-blur-md shadow-sm">
                       ★ FEATURED
                     </div>
+                  )}
+
+                  {/* Live Quick Link Pill on Hover */}
+                  {project.live && project.live !== "#" && (
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      rel="noreferrer"
+                      onClick={() => sound.playClick()}
+                      className="absolute bottom-3 right-3 opacity-0 group-hover/img:opacity-100 transition-all duration-300 flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-medium bg-black/80 text-white border border-white/20 backdrop-blur-md hover:bg-[#00f5a0] hover:text-black hover:border-transparent shadow-lg"
+                    >
+                      <span>Visit Live</span>
+                      <ExternalLink size={12} />
+                    </a>
                   )}
                 </div>
 
