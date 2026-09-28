@@ -50,17 +50,17 @@ export function Contact() {
           <div className="grid sm:grid-cols-2 gap-4">
             {/* Email */}
             <div 
-              className="flex items-center gap-3.5 p-3.5 rounded-2xl bg-white/70 dark:bg-white/5 border border-slate-200 dark:border-white/10 shadow-sm dark:shadow-none hover:border-[#00a86b]/40 dark:hover:border-[#00f5a0]/40 transition-all duration-300 group cursor-pointer"
+              className="flex items-center gap-3.5 p-3.5 rounded-2xl bg-white dark:bg-white/5 border border-slate-300 dark:border-white/10 shadow-sm dark:shadow-none hover:border-[#00a86b] dark:hover:border-[#00f5a0] transition-all duration-300 group cursor-pointer"
               onMouseEnter={() => sound.playHover()}
             >
-              <div className="w-11 h-11 rounded-xl bg-slate-100 dark:bg-white/5 flex items-center justify-center text-[#0099bb] dark:text-[#00d4ff] group-hover:scale-110 transition-transform">
-                <Mail size={18} />
+              <div className="w-11 h-11 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 flex items-center justify-center text-[#0284c7] dark:text-[#00d4ff] group-hover:scale-110 transition-transform">
+                <Mail size={19} strokeWidth={2.3} />
               </div>
               <div className="min-w-0 flex-1">
-                <p className="text-[11px] text-text-muted font-mono uppercase tracking-wider">Email</p>
+                <p className="text-[11px] text-slate-500 dark:text-slate-400 font-mono uppercase tracking-wider font-bold">Email</p>
                 <a 
                   href={`mailto:${personalInfo.email}`} 
-                  className="text-xs sm:text-sm text-slate-900 dark:text-white font-medium hover:text-[#00a86b] dark:hover:text-[#00f5a0] transition-colors truncate block"
+                  className="text-xs sm:text-sm text-slate-950 dark:text-white font-bold hover:text-[#00a86b] dark:hover:text-[#00f5a0] transition-colors truncate block"
                   title={personalInfo.email}
                 >
                   {personalInfo.email}
@@ -70,17 +70,17 @@ export function Contact() {
 
             {/* Phone */}
             <div 
-              className="flex items-center gap-3.5 p-3.5 rounded-2xl bg-white/70 dark:bg-white/5 border border-slate-200 dark:border-white/10 shadow-sm dark:shadow-none hover:border-[#00a86b]/40 dark:hover:border-[#00f5a0]/40 transition-all duration-300 group cursor-pointer"
+              className="flex items-center gap-3.5 p-3.5 rounded-2xl bg-white dark:bg-white/5 border border-slate-300 dark:border-white/10 shadow-sm dark:shadow-none hover:border-[#00a86b] dark:hover:border-[#00f5a0] transition-all duration-300 group cursor-pointer"
               onMouseEnter={() => sound.playHover()}
             >
-              <div className="w-11 h-11 rounded-xl bg-slate-100 dark:bg-white/5 flex items-center justify-center text-[#00a86b] dark:text-[#00f5a0] group-hover:scale-110 transition-transform">
-                <Phone size={18} />
+              <div className="w-11 h-11 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 flex items-center justify-center text-[#008855] dark:text-[#00f5a0] group-hover:scale-110 transition-transform">
+                <Phone size={19} strokeWidth={2.3} />
               </div>
               <div className="min-w-0 flex-1">
-                <p className="text-[11px] text-text-muted font-mono uppercase tracking-wider">Phone</p>
+                <p className="text-[11px] text-slate-500 dark:text-slate-400 font-mono uppercase tracking-wider font-bold">Phone</p>
                 <a 
                   href={`tel:${personalInfo.phoneRaw}`} 
-                  className="text-xs sm:text-sm text-slate-900 dark:text-white font-medium hover:text-[#00a86b] dark:hover:text-[#00f5a0] transition-colors truncate block"
+                  className="text-xs sm:text-sm text-slate-950 dark:text-white font-bold hover:text-[#00a86b] dark:hover:text-[#00f5a0] transition-colors truncate block"
                 >
                   {personalInfo.phone}
                 </a>
@@ -89,19 +89,19 @@ export function Contact() {
 
             {/* Telegram */}
             <div 
-              className="flex items-center gap-3.5 p-3.5 rounded-2xl bg-white/70 dark:bg-white/5 border border-slate-200 dark:border-white/10 shadow-sm dark:shadow-none hover:border-[#00a86b]/40 dark:hover:border-[#00f5a0]/40 transition-all duration-300 group cursor-pointer"
+              className="flex items-center gap-3.5 p-3.5 rounded-2xl bg-white dark:bg-white/5 border border-slate-300 dark:border-white/10 shadow-sm dark:shadow-none hover:border-[#00a86b] dark:hover:border-[#00f5a0] transition-all duration-300 group cursor-pointer"
               onMouseEnter={() => sound.playHover()}
             >
-              <div className="w-11 h-11 rounded-xl bg-slate-100 dark:bg-white/5 flex items-center justify-center text-[#0099bb] dark:text-[#00d4ff] group-hover:scale-110 transition-transform">
-                <Send size={18} />
+              <div className="w-11 h-11 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 flex items-center justify-center text-[#0284c7] dark:text-[#00d4ff] group-hover:scale-110 transition-transform">
+                <Send size={19} strokeWidth={2.3} />
               </div>
               <div className="min-w-0 flex-1">
-                <p className="text-[11px] text-text-muted font-mono uppercase tracking-wider">Telegram</p>
+                <p className="text-[11px] text-slate-500 dark:text-slate-400 font-mono uppercase tracking-wider font-bold">Telegram</p>
                 <a 
                   href={personalInfo.telegram} 
                   target="_blank" 
                   rel="noreferrer" 
-                  className="text-xs sm:text-sm text-slate-900 dark:text-white font-medium hover:text-[#00a86b] dark:hover:text-[#00f5a0] transition-colors truncate block"
+                  className="text-xs sm:text-sm text-slate-950 dark:text-white font-bold hover:text-[#00a86b] dark:hover:text-[#00f5a0] transition-colors truncate block"
                 >
                   {personalInfo.telegramHandle}
                 </a>
@@ -110,15 +110,15 @@ export function Contact() {
 
             {/* Location */}
             <div 
-              className="flex items-center gap-3.5 p-3.5 rounded-2xl bg-white/70 dark:bg-white/5 border border-slate-200 dark:border-white/10 shadow-sm dark:shadow-none group"
+              className="flex items-center gap-3.5 p-3.5 rounded-2xl bg-white dark:bg-white/5 border border-slate-300 dark:border-white/10 shadow-sm dark:shadow-none group"
               onMouseEnter={() => sound.playHover()}
             >
-              <div className="w-11 h-11 rounded-xl bg-slate-100 dark:bg-white/5 flex items-center justify-center text-[#d97706] dark:text-[#ffb800] group-hover:scale-110 transition-transform">
-                <MapPin size={18} />
+              <div className="w-11 h-11 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 flex items-center justify-center text-[#d97706] dark:text-[#ffb800] group-hover:scale-110 transition-transform">
+                <MapPin size={19} strokeWidth={2.3} />
               </div>
               <div className="min-w-0 flex-1">
-                <p className="text-[11px] text-text-muted font-mono uppercase tracking-wider">Location</p>
-                <p className="text-xs sm:text-sm text-slate-900 dark:text-white font-medium truncate">
+                <p className="text-[11px] text-slate-500 dark:text-slate-400 font-mono uppercase tracking-wider font-bold">Location</p>
+                <p className="text-xs sm:text-sm text-slate-950 dark:text-white font-bold truncate">
                   {personalInfo.location}
                 </p>
               </div>
@@ -126,16 +126,16 @@ export function Contact() {
           </div>
 
           {/* Social Profiles Row */}
-          <div className="flex items-center gap-3 mt-6 pt-6 border-t border-slate-200 dark:border-white/5">
-            <span className="text-xs font-mono text-text-muted uppercase tracking-wider mr-1">Profiles:</span>
+          <div className="flex items-center gap-3 mt-6 pt-6 border-t border-slate-300/80 dark:border-white/5">
+            <span className="text-xs font-mono text-slate-600 dark:text-slate-400 uppercase tracking-wider mr-1 font-bold">Profiles:</span>
             <a
               href={personalInfo.github}
               target="_blank"
               rel="noreferrer"
               onMouseEnter={() => sound.playHover()}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 text-xs font-mono font-medium text-slate-700 dark:text-text-secondary hover:text-[#00a86b] dark:hover:text-[#00f5a0] hover:border-[#00a86b]/40 transition-colors shadow-sm dark:shadow-none"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white dark:bg-white/5 border border-slate-300 dark:border-white/10 text-xs font-mono font-bold text-slate-800 dark:text-slate-200 hover:text-[#00a86b] dark:hover:text-[#00f5a0] hover:border-[#00a86b] transition-all shadow-sm dark:shadow-none hover:scale-105"
             >
-              <Github size={14} />
+              <Github size={15} strokeWidth={2.3} />
               <span>GitHub</span>
             </a>
             <a
@@ -143,9 +143,9 @@ export function Contact() {
               target="_blank"
               rel="noreferrer"
               onMouseEnter={() => sound.playHover()}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 text-xs font-mono font-medium text-slate-700 dark:text-text-secondary hover:text-[#0099bb] dark:hover:text-[#00d4ff] hover:border-[#0099bb]/40 transition-colors shadow-sm dark:shadow-none"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white dark:bg-white/5 border border-slate-300 dark:border-white/10 text-xs font-mono font-bold text-slate-800 dark:text-slate-200 hover:text-[#0284c7] dark:hover:text-[#00d4ff] hover:border-[#0284c7] transition-all shadow-sm dark:shadow-none hover:scale-105"
             >
-              <Linkedin size={14} />
+              <Linkedin size={15} strokeWidth={2.3} />
               <span>LinkedIn</span>
             </a>
             <a
@@ -153,9 +153,9 @@ export function Contact() {
               target="_blank"
               rel="noreferrer"
               onMouseEnter={() => sound.playHover()}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 text-xs font-mono font-medium text-slate-700 dark:text-text-secondary hover:text-[#0099bb] dark:hover:text-[#00d4ff] hover:border-[#0099bb]/40 transition-colors shadow-sm dark:shadow-none"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white dark:bg-white/5 border border-slate-300 dark:border-white/10 text-xs font-mono font-bold text-slate-800 dark:text-slate-200 hover:text-[#0284c7] dark:hover:text-[#00d4ff] hover:border-[#0284c7] transition-all shadow-sm dark:shadow-none hover:scale-105"
             >
-              <Send size={14} />
+              <Send size={15} strokeWidth={2.3} />
               <span>Telegram</span>
             </a>
           </div>

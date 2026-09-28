@@ -41,7 +41,7 @@ export function Footer() {
             href={personalInfo.github}
             target="_blank"
             rel="noreferrer"
-            className="text-slate-600 dark:text-text-secondary hover:text-slate-900 dark:hover:text-white transition-colors"
+            className="text-slate-700 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white transition-colors font-bold text-sm"
           >
             GitHub
           </a>
@@ -49,7 +49,7 @@ export function Footer() {
             href={personalInfo.linkedin}
             target="_blank"
             rel="noreferrer"
-            className="text-slate-600 dark:text-text-secondary hover:text-slate-900 dark:hover:text-white transition-colors"
+            className="text-slate-700 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white transition-colors font-bold text-sm"
           >
             LinkedIn
           </a>
@@ -57,13 +57,13 @@ export function Footer() {
             href={personalInfo.telegram}
             target="_blank"
             rel="noreferrer"
-            className="text-slate-600 dark:text-text-secondary hover:text-slate-900 dark:hover:text-white transition-colors"
+            className="text-slate-700 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white transition-colors font-bold text-sm"
           >
             Telegram
           </a>
           <a
             href={`mailto:${personalInfo.email}`}
-            className="text-slate-600 dark:text-text-secondary hover:text-slate-900 dark:hover:text-white transition-colors"
+            className="text-slate-700 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white transition-colors font-bold text-sm"
           >
             Email
           </a>

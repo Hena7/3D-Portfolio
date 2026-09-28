@@ -91,16 +91,16 @@ export function Navbar() {
                 }}
                 onMouseEnter={() => sound.playHover()}
                 className={cn(
-                  "relative px-4 py-1.5 text-sm font-medium rounded-lg transition-colors duration-200 font-mono",
+                  "relative px-4 py-1.5 text-sm font-bold rounded-lg transition-colors duration-200 font-mono",
                   isActive
-                    ? "text-[#00a86b] dark:text-[#00f5a0]"
-                    : "text-slate-600 dark:text-text-secondary hover:text-slate-900 dark:hover:text-white"
+                    ? "text-[#008855] dark:text-[#00f5a0]"
+                    : "text-slate-800 dark:text-slate-200 hover:text-slate-950 dark:hover:text-white"
                 )}
               >
                 {isActive && (
                   <motion.div
                     layoutId="nav-pill"
-                    className="absolute inset-0 bg-[#00a86b]/10 dark:bg-[#00f5a0]/10 border border-[#00a86b]/30 dark:border-[#00f5a0]/30 rounded-lg"
+                    className="absolute inset-0 bg-[#00a86b]/15 dark:bg-[#00f5a0]/10 border border-[#00a86b]/40 dark:border-[#00f5a0]/30 rounded-lg"
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
                 )}
@@ -119,7 +119,7 @@ export function Navbar() {
             rel="noopener noreferrer"
             onMouseEnter={() => sound.playHover()}
             onClick={() => sound.playClick()}
-            className="btn-outline text-xs py-2 px-4 font-mono"
+            className="btn-outline text-xs py-2 px-4 font-mono font-bold text-slate-950 dark:text-white border-slate-300 dark:border-[#00f5a0]/40 shadow-sm"
           >
             Resume.pdf
           </a>

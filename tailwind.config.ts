@@ -27,9 +27,9 @@ const config: Config = {
           cyan: "#00d4ff",
         },
         text: {
-          primary: "#e2e8f0",
-          secondary: "#94a3b8",
-          muted: "#475569",
+          primary: "var(--color-text-primary)",
+          secondary: "var(--color-text-secondary)",
+          muted: "var(--color-text-muted)",
         },
       },
       fontFamily: {

@@ -2,9 +2,11 @@
 // Edit this file to customize all portfolio content.
 
 export const personalInfo = {
-  name: "Henok Mekonnen",
-  title: "Full Stack Developer",
-  tagline: "Building digital experiences that live at the intersection of design and engineering.",
+  name: "Henok Mekonnen Berhe",
+  shortName: "Henok Mekonnen",
+  title: "Full-Stack Developer",
+  tagline: "Full-Stack Developer specializing in React, Next.js, Node.js, and PostgreSQL. Passionate about solving real-world problems through clean architecture.",
+  summary: "Full-Stack Developer specializing in React, Next.js, Node.js, and PostgreSQL. Experienced in building scalable web applications including e-commerce platforms, tournament systems, and management dashboards. Passionate about solving real-world problems through clean architecture and modern development practices.",
   email: "henockmekonnen105@gmail.com",
   phone: "+251 90 430 7038",
   phoneRaw: "+251904307038",
@@ -13,53 +15,59 @@ export const personalInfo = {
   telegram: "https://t.me/hena2129",
   telegramHandle: "@hena2129",
   location: "Addis Ababa, Ethiopia",
+  education: "Bachelor of Engineer in Software Engineering, Mekelle University",
+  graduation: "Expected graduation: June 2027",
+  internship: "Software Engineering Intern at INSA (Information Network Security Administration)",
   avatar: "/avatar.jpg",
   resumeUrl: "/Henok_Mekonnen_Fullstack_Resume.pdf",
 };
 
 // Typing animation roles
 export const roles = [
-  "Full Stack Developer",
-  "React & Next.js Engineer",
-  "Node.js & Spring Boot Dev",
-  "UI/UX Enthusiast",
-  "Open Source Contributor",
+  "Full-Stack Developer",
+  "React.js & Next.js Engineer",
+  "Node.js & Express Specialist",
+  "Spring Boot & PostgreSQL Dev",
+  "Software Engineering @ Mekelle Univ",
 ];
 
 // ─── Skills ────────────────────────────────────────────────────────────────
 export interface Skill {
   name: string;
   icon: string;
-  category: "Frontend" | "Backend" | "DevOps" | "Tools";
+  category: "Frontend" | "Backend" | "Database" | "Tools";
   level: number; // 0-100
   color: string;
 }
 
 export const skills: Skill[] = [
-  // Frontend
-  { name: "React", icon: "SiReact", category: "Frontend", level: 95, color: "#61DAFB" },
-  { name: "Next.js", icon: "SiNextdotjs", category: "Frontend", level: 92, color: "#ffffff" },
-  { name: "TypeScript", icon: "SiTypescript", category: "Frontend", level: 88, color: "#3178C6" },
-  { name: "Tailwind CSS", icon: "SiTailwindcss", category: "Frontend", level: 92, color: "#06B6D4" },
-  { name: "Framer Motion", icon: "SiFramer", category: "Frontend", level: 80, color: "#0055FF" },
-  { name: "Three.js", icon: "SiThreedotjs", category: "Frontend", level: 72, color: "#ffffff" },
-  // Backend
-  { name: "Spring Boot", icon: "SiSpring", category: "Backend", level: 88, color: "#6DB33F" },
-  { name: "Node.js", icon: "SiNodedotjs", category: "Backend", level: 85, color: "#339933" },
-  { name: "PostgreSQL", icon: "SiPostgresql", category: "Backend", level: 85, color: "#4169E1" },
-  { name: "MongoDB", icon: "SiMongodb", category: "Backend", level: 82, color: "#47A248" },
-  { name: "Redis", icon: "SiRedis", category: "Backend", level: 70, color: "#DC382D" },
-  { name: "Java", icon: "SiOpenjdk", category: "Backend", level: 85, color: "#ED8B00" },
-  // DevOps
-  { name: "Docker", icon: "SiDocker", category: "DevOps", level: 80, color: "#2496ED" },
-  { name: "Kubernetes", icon: "SiKubernetes", category: "DevOps", level: 65, color: "#326CE5" },
-  { name: "GitHub Actions", icon: "SiGithubactions", category: "DevOps", level: 78, color: "#2088FF" },
-  { name: "AWS", icon: "SiAmazon", category: "DevOps", level: 70, color: "#FF9900" },
-  // Tools
-  { name: "Git", icon: "SiGit", category: "Tools", level: 92, color: "#F05032" },
-  { name: "Keycloak", icon: "SiKeycloak", category: "Tools", level: 82, color: "#4D4D4D" },
-  { name: "Figma", icon: "SiFigma", category: "Tools", level: 75, color: "#F24E1E" },
-  { name: "VS Code", icon: "SiVisualstudiocode", category: "Tools", level: 95, color: "#007ACC" },
+  // Front-end (from Resume)
+  { name: "React.js", icon: "SiReact", category: "Frontend", level: 95, color: "#0284c7" },
+  { name: "Next.js", icon: "SiNextdotjs", category: "Frontend", level: 94, color: "#0f172a" },
+  { name: "TypeScript", icon: "SiTypescript", category: "Frontend", level: 90, color: "#3178C6" },
+  { name: "TailwindCSS", icon: "SiTailwindcss", category: "Frontend", level: 92, color: "#06B6D4" },
+  { name: "HTML5 & CSS3", icon: "SiHtml5", category: "Frontend", level: 95, color: "#E34F26" },
+  { name: "Framer Motion", icon: "SiFramer", category: "Frontend", level: 82, color: "#0055FF" },
+
+  // Back-end (from Resume)
+  { name: "Node.js", icon: "SiNodedotjs", category: "Backend", level: 92, color: "#339933" },
+  { name: "Express.js", icon: "SiExpress", category: "Backend", level: 90, color: "#1e293b" },
+  { name: "NestJS", icon: "SiNestjs", category: "Backend", level: 82, color: "#E0234E" },
+  { name: "Spring Boot", icon: "SiSpring", category: "Backend", level: 86, color: "#6DB33F" },
+
+  // Database (from Resume)
+  { name: "PostgreSQL", icon: "SiPostgresql", category: "Database", level: 92, color: "#4169E1" },
+  { name: "MongoDB", icon: "SiMongodb", category: "Database", level: 86, color: "#47A248" },
+  { name: "SQL", icon: "SiMysql", category: "Database", level: 90, color: "#00758F" },
+  { name: "Redis", icon: "SiRedis", category: "Database", level: 75, color: "#DC382D" },
+
+  // Tools (from Resume)
+  { name: "Git", icon: "SiGit", category: "Tools", level: 94, color: "#F05032" },
+  { name: "GitHub", icon: "SiGithub", category: "Tools", level: 94, color: "#0f172a" },
+  { name: "Docker", icon: "SiDocker", category: "Tools", level: 82, color: "#2496ED" },
+  { name: "Swagger", icon: "SiSwagger", category: "Tools", level: 88, color: "#85EA2D" },
+  { name: "Trello", icon: "SiTrello", category: "Tools", level: 85, color: "#0052CC" },
+  { name: "VS Code", icon: "SiVisualstudiocode", category: "Tools", level: 96, color: "#007ACC" },
 ];
 
 // ─── Projects ──────────────────────────────────────────────────────────────
@@ -205,39 +213,32 @@ export interface TimelineItem {
 
 export const timeline: TimelineItem[] = [
   {
-    year: "2024–Present",
-    title: "Senior Full Stack Developer",
-    company: "Tech Company",
-    description: "Leading development of enterprise HR systems, microservices architecture, and DevOps pipelines.",
+    year: "Feb 2026 – Jun 2026",
+    title: "Software Engineering Intern",
+    company: "INSA (Information Network Security Administration)",
+    description: "Developed features for an HR Training Management System using Next.js, TypeScript, Spring Boot, and PostgreSQL. Implemented responsive user interfaces, integrated backend APIs, and applied Git-based version control.",
     type: "work",
   },
   {
-    year: "2022–2024",
-    title: "Full Stack Developer",
-    company: "Startup",
-    description: "Built scalable React/Next.js frontends and Spring Boot APIs serving thousands of daily users.",
+    year: "2024 – Present",
+    title: "Full-Stack Web Architect",
+    company: "Independent & Open Source Projects",
+    description: "Engineered scalable web applications: PlayStation Tournament App (Swiss-system pairing & live leaderboards), Lena Luxe Wear e-commerce, Maedot Consulting management system, and Yzezun Delivery.",
     type: "work",
   },
   {
-    year: "2020–2022",
-    title: "Junior Developer",
-    company: "Agency",
-    description: "Developed responsive web applications for various clients using React and Node.js.",
-    type: "work",
-  },
-  {
-    year: "2016–2020",
-    title: "BSc. Computer Science",
-    company: "AAiT, Addis Ababa University",
-    description: "Graduated with honors. Focused on software engineering, algorithms, and distributed systems.",
+    year: "Expected June 2027",
+    title: "Bachelor of Engineer in Software Engineering",
+    company: "Mekelle University, Mekelle, Tigray, Ethiopia",
+    description: "Consistently maintained strong academic performance in Software Engineering. Contributed to engineering group projects that strengthened teamwork, clean architecture, and problem-solving abilities.",
     type: "education",
   },
 ];
 
 // ─── Stats ─────────────────────────────────────────────────────────────────
 export const stats = [
-  { label: "Years Experience", value: 6, suffix: "+" },
-  { label: "Projects Delivered", value: 40, suffix: "+" },
-  { label: "Happy Clients", value: 20, suffix: "+" },
-  { label: "GitHub Stars", value: 150, suffix: "+" },
+  { label: "Production Apps", value: 7, suffix: "+" },
+  { label: "Core Technologies", value: 18, suffix: "+" },
+  { label: "GitHub Repos", value: 35, suffix: "+" },
+  { label: "Class of 2027", value: 100, suffix: "%" },
 ];

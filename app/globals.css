@@ -17,9 +17,9 @@
   --color-accent-emerald: #00f5a0;
   --color-accent-emerald-glow: rgba(0, 245, 160, 0.35);
   --color-accent-amber: #ffb800;
-  --color-text-primary: #e2e8f0;
-  --color-text-secondary: #94a3b8;
-  --color-text-muted: #475569;
+  --color-text-primary: #f8fafc;
+  --color-text-secondary: #cbd5e1;
+  --color-text-muted: #94a3b8;
   --font-inter: 'Inter', system-ui, sans-serif;
   --font-orbitron: 'Orbitron', monospace;
   --font-jetbrains: 'JetBrains Mono', monospace;
@@ -27,19 +27,19 @@
 
 /* ─── CSS Variables — Light Mode ─────────────────────────────────────── */
 .light {
-  --color-bg: #f0f4f8;
+  --color-bg: #f8fafc;
   --color-surface: #ffffff;
-  --color-surface-2: #e8eef4;
+  --color-surface-2: #f1f5f9;
   --color-border: #cbd5e1;
-  --color-primary: #0099bb;
-  --color-primary-glow: rgba(0, 153, 187, 0.25);
-  --color-accent-pink: #e0005e;
-  --color-accent-emerald: #00a86b;
-  --color-accent-emerald-glow: rgba(0, 168, 107, 0.25);
+  --color-primary: #0284c7;
+  --color-primary-glow: rgba(2, 132, 199, 0.25);
+  --color-accent-pink: #e11d48;
+  --color-accent-emerald: #059669;
+  --color-accent-emerald-glow: rgba(5, 150, 105, 0.25);
   --color-accent-amber: #d97706;
-  --color-text-primary: #0f172a;
-  --color-text-secondary: #475569;
-  --color-text-muted: #94a3b8;
+  --color-text-primary: #020617;
+  --color-text-secondary: #1e293b;
+  --color-text-muted: #475569;
 }
 
 /* ─── Base Reset ─────────────────────────────────────────────────────── */
@@ -106,10 +106,10 @@ body {
     border: 1px solid rgba(255,255,255,0.1);
   }
   .light .glass {
-    background: rgba(255,255,255,0.7);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(0,0,0,0.08);
-    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(203, 213, 225, 0.85);
+    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
   }
 
   .glass-strong {
@@ -118,10 +118,10 @@ body {
     border: 1px solid rgba(255,255,255,0.15);
   }
   .light .glass-strong {
-    background: rgba(255,255,255,0.85);
+    background: rgba(255,255,255,0.96);
     backdrop-filter: blur(20px);
-    border: 1px solid rgba(0,0,0,0.1);
-    box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+    border: 1px solid rgba(203, 213, 225, 0.95);
+    box-shadow: 0 8px 30px rgba(15, 23, 42, 0.08);
   }
 
   .neon-text {

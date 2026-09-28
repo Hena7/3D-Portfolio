@@ -68,12 +68,14 @@ export function Terminal() {
 
       case "bio":
         output = (
-          <div className="text-xs space-y-1 text-slate-600 dark:text-text-secondary">
-            <p><strong className="text-slate-900 dark:text-white">Name:</strong> {personalInfo.name}</p>
-            <p><strong className="text-slate-900 dark:text-white">Role:</strong> Senior Full Stack Engineer</p>
-            <p><strong className="text-slate-900 dark:text-white">Location:</strong> {personalInfo.location}</p>
-            <p className="text-[#00a86b] dark:text-[#00f5a0] pt-1">
-              &quot;Building enterprise web products with extreme precision, high scalability, and seamless user experiences.&quot;
+          <div className="text-xs space-y-1.5 text-slate-700 dark:text-slate-300">
+            <p><strong className="text-slate-950 dark:text-white font-bold">Name:</strong> {personalInfo.name}</p>
+            <p><strong className="text-slate-950 dark:text-white font-bold">Role:</strong> Full-Stack Developer</p>
+            <p><strong className="text-slate-950 dark:text-white font-bold">Education:</strong> Bachelor of Engineer in Software Engineering, Mekelle University (2027)</p>
+            <p><strong className="text-slate-950 dark:text-white font-bold">Experience:</strong> Software Engineering Intern @ INSA (Information Network Security Administration)</p>
+            <p><strong className="text-slate-950 dark:text-white font-bold">Location:</strong> {personalInfo.location}</p>
+            <p className="text-[#008855] dark:text-[#00f5a0] pt-1 font-semibold">
+              &quot;Specializing in React, Next.js, Node.js, and PostgreSQL. Passionate about solving real-world problems through clean architecture and modern development practices.&quot;
             </p>
           </div>
         );
@@ -81,10 +83,11 @@ export function Terminal() {
 
       case "skills":
         output = (
-          <div className="text-xs space-y-1">
-            <p><span className="text-[#00a86b] dark:text-[#00f5a0] font-semibold">Frontend:</span> React, Next.js 15, TypeScript, Tailwind, Three.js, Framer Motion</p>
-            <p><span className="text-[#0099bb] dark:text-[#00d4ff] font-semibold">Backend:</span> Spring Boot, Java, Node.js, PostgreSQL, Redis, MongoDB</p>
-            <p><span className="text-[#d97706] dark:text-[#ffb800] font-semibold">DevOps:</span> Docker, Kubernetes, CI/CD Actions, AWS Cloud</p>
+          <div className="text-xs space-y-1.5">
+            <p><span className="text-[#0077aa] dark:text-[#00d4ff] font-bold">Frontend:</span> React.js, Next.js, TypeScript, TailwindCSS, HTML5, CSS3, Framer Motion</p>
+            <p><span className="text-[#008855] dark:text-[#00f5a0] font-bold">Backend:</span> Node.js, Express.js, NestJS, Spring Boot</p>
+            <p><span className="text-[#2563eb] dark:text-[#60a5fa] font-bold">Database:</span> PostgreSQL, MongoDB, SQL, Redis</p>
+            <p><span className="text-[#d97706] dark:text-[#ffb800] font-bold">Tools:</span> Git, GitHub, Docker, Swagger, Trello, VS Code</p>
           </div>
         );
         break;

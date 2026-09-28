@@ -158,55 +158,55 @@ export function Projects() {
 
                 {/* Content Box */}
                 <div className="p-6 md:p-7 flex-1 flex flex-col relative z-10 bg-slate-50/70 dark:bg-[#070b0e] transition-colors duration-300">
-                   {/* Top info line */}
-                   <div className="flex items-center justify-between mb-3">
-                       <span className="font-mono text-xs text-[#00a86b] dark:text-[#00f5a0] tracking-wider uppercase font-semibold">
-                           {project.category}
-                       </span>
-                       
-                       <div className="flex items-center gap-3">
-                          {project.github !== "#" && (
-                             <a
-                               href={project.github}
-                               target="_blank"
-                               rel="noreferrer"
-                               onMouseEnter={() => sound.playHover()}
-                               className="text-slate-500 dark:text-text-muted hover:text-slate-900 dark:hover:text-white transition-colors p-1"
-                               aria-label="GitHub Repository"
-                             >
-                                 <Github size={18} />
-                             </a>
-                          )}
-                          {project.live !== "#" && (
-                             <a
-                               href={project.live}
-                               target="_blank"
-                               rel="noreferrer"
-                               onMouseEnter={() => sound.playHover()}
-                               className="text-slate-500 dark:text-text-muted hover:text-[#00a86b] dark:hover:text-[#00f5a0] transition-colors p-1"
-                               aria-label="Live Demo"
-                             >
-                                 <ExternalLink size={18} />
-                             </a>
-                          )}
-                       </div>
-                   </div>
+                  {/* Top info line */}
+                  <div className="flex items-center justify-between mb-3">
+                      <span className="font-mono text-xs text-[#008855] dark:text-[#00f5a0] tracking-wider uppercase font-bold">
+                          {project.category}
+                      </span>
+                      
+                      <div className="flex items-center gap-3">
+                         {project.github !== "#" && (
+                            <a
+                              href={project.github}
+                              target="_blank"
+                              rel="noreferrer"
+                              onMouseEnter={() => sound.playHover()}
+                              className="text-slate-700 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white transition-all p-1 hover:scale-110"
+                              aria-label="GitHub Repository"
+                            >
+                                <Github size={19} strokeWidth={2.2} />
+                            </a>
+                         )}
+                         {project.live !== "#" && (
+                            <a
+                              href={project.live}
+                              target="_blank"
+                              rel="noreferrer"
+                              onMouseEnter={() => sound.playHover()}
+                              className="text-slate-700 dark:text-slate-300 hover:text-[#00a86b] dark:hover:text-[#00f5a0] transition-all p-1 hover:scale-110"
+                              aria-label="Live Demo"
+                            >
+                                <ExternalLink size={19} strokeWidth={2.2} />
+                            </a>
+                         )}
+                      </div>
+                  </div>
 
                   {/* Title & Description */}
-                  <h3 className="font-display text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-[#00a86b] dark:group-hover:text-[#00f5a0] transition-colors">
+                  <h3 className="font-display text-xl font-bold text-slate-950 dark:text-white mb-2 group-hover:text-[#00a86b] dark:group-hover:text-[#00f5a0] transition-colors">
                     {project.title}
                   </h3>
                   
-                  <p className="text-slate-600 dark:text-text-secondary text-sm leading-relaxed mb-6 flex-1">
+                  <p className="text-slate-700 dark:text-slate-300 text-sm leading-relaxed mb-6 flex-1 font-medium">
                     {project.description}
                   </p>
 
                   {/* Tech Stack Tags */}
-                  <div className="flex flex-wrap gap-1.5 mt-auto pt-4 border-t border-slate-200 dark:border-white/5">
+                  <div className="flex flex-wrap gap-1.5 mt-auto pt-4 border-t border-slate-300/80 dark:border-white/5">
                     {project.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="px-2 py-0.5 text-[11px] rounded-md bg-white dark:bg-white/5 text-[#0099bb] dark:text-[#00d4ff] font-mono border border-slate-200 dark:border-white/5 shadow-sm dark:shadow-none"
+                        className="px-2.5 py-0.5 text-[11px] font-bold rounded-md bg-white dark:bg-white/5 text-[#007799] dark:text-[#00d4ff] font-mono border border-slate-300 dark:border-white/5 shadow-sm dark:shadow-none"
                       >
                         {tag}
                       </span>

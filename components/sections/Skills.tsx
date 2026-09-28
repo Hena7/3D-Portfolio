@@ -5,20 +5,20 @@ import { skills } from "@/lib/data";
 import { cn } from "@/lib/utils";
 import * as SiIcons from "react-icons/si";
 
-// ─── Map category to custom colors (Zero Purple) ───
-const categoryColors = {
-  Frontend: "text-[#00d4ff] border-[#00d4ff]/40 bg-[#00d4ff]/10",
-  Backend: "text-[#00f5a0] border-[#00f5a0]/40 bg-[#00f5a0]/10",
-  DevOps: "text-[#ffb800] border-[#ffb800]/40 bg-[#ffb800]/10",
-  Tools: "text-[#38bdf8] border-[#38bdf8]/40 bg-[#38bdf8]/10",
+// ─── Map category to custom colors (Zero Purple, High Contrast) ───
+const categoryColors: Record<string, string> = {
+  Frontend: "text-sky-700 dark:text-[#00d4ff] border-sky-300 dark:border-[#00d4ff]/40 bg-sky-100/70 dark:bg-[#00d4ff]/10 font-bold shadow-sm",
+  Backend: "text-emerald-700 dark:text-[#00f5a0] border-emerald-300 dark:border-[#00f5a0]/40 bg-emerald-100/70 dark:bg-[#00f5a0]/10 font-bold shadow-sm",
+  Database: "text-blue-700 dark:text-[#60a5fa] border-blue-300 dark:border-blue-400/40 bg-blue-100/70 dark:bg-blue-500/10 font-bold shadow-sm",
+  Tools: "text-teal-800 dark:text-[#2dd4bf] border-teal-300 dark:border-teal-400/40 bg-teal-100/70 dark:bg-teal-500/10 font-bold shadow-sm",
 };
 
 // ─── Icon Mapper ───
 function getIcon(iconName: string) {
   // @ts-ignore
   const Icon = SiIcons[iconName];
-  if (!Icon) return <div className="w-8 h-8 rounded-full bg-white/10" />;
-  return <Icon className="w-7 h-7 transition-colors duration-300" />;
+  if (!Icon) return <div className="w-8 h-8 rounded-full bg-slate-200 dark:bg-white/10" />;
+  return <Icon className="w-8 h-8 transition-transform duration-300" />;
 }
 
 // ─── Card Component ───
@@ -30,7 +30,7 @@ function SkillCard({ skill, index }: { skill: any; index: number }) {
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.5, delay: index * 0.04 }}
       whileHover={{ y: -6, scale: 1.03 }}
-      className="bg-white/80 dark:bg-transparent glass rounded-2xl p-5 flex flex-col items-center justify-center gap-4 group relative overflow-hidden border border-slate-200 dark:border-white/10 hover:border-[#00a86b]/40 dark:hover:border-[#00f5a0]/40 transition-all duration-300 hover:shadow-card-hover shadow-sm dark:shadow-none"
+      className="bg-white dark:bg-[#080d14]/90 rounded-2xl p-5 flex flex-col items-center justify-center gap-4 group relative overflow-hidden border border-slate-300/90 dark:border-white/10 hover:border-[#00a86b] dark:hover:border-[#00f5a0] transition-all duration-300 hover:shadow-card-hover shadow-md dark:shadow-none"
     >
       {/* Background glow on hover */}
       <div
@@ -40,9 +40,9 @@ function SkillCard({ skill, index }: { skill: any; index: number }) {
         }}
       />
 
-      {/* Icon with explicit brand color on hover */}
+      {/* Icon with bold contrast and brand color on hover */}
       <div
-        className="relative z-10 w-14 h-14 rounded-full flex items-center justify-center bg-slate-100/90 dark:glass group-hover:shadow-[0_0_20px_rgba(0,245,160,0.25)] transition-all duration-300"
+        className="relative z-10 w-16 h-16 rounded-2xl flex items-center justify-center bg-slate-100/90 dark:bg-white/5 border border-slate-200 dark:border-white/10 group-hover:border-[#00a86b]/40 dark:group-hover:border-[#00f5a0]/40 group-hover:shadow-[0_0_20px_rgba(0,245,160,0.25)] transition-all duration-300 shadow-inner dark:shadow-none"
         style={
           {
             "--hover-color": skill.color,
@@ -50,20 +50,19 @@ function SkillCard({ skill, index }: { skill: any; index: number }) {
         }
       >
         <div
-          className="text-text-secondary group-hover:text-[var(--hover-color)] transition-colors duration-300"
-          style={{ transitionProperty: "color, stroke, fill" }}
+          className="text-slate-800 dark:text-slate-100 group-hover:text-[var(--hover-color)] transition-colors duration-300 group-hover:scale-110"
         >
            {getIcon(skill.icon)}
         </div>
       </div>
 
       <div className="relative z-10 flex flex-col items-center w-full">
-         <span className="font-semibold text-sm text-text-primary text-center mb-2 font-mono">
+         <span className="font-bold text-sm text-slate-900 dark:text-white text-center mb-2 font-mono tracking-tight group-hover:text-[#00a86b] dark:group-hover:text-[#00f5a0] transition-colors">
             {skill.name}
          </span>
          
          {/* Level bar */}
-         <div className="w-full h-1.5 bg-slate-200 dark:bg-white/10 rounded-full overflow-hidden mt-1">
+         <div className="w-full h-2 bg-slate-200 dark:bg-white/10 rounded-full overflow-hidden mt-1 p-0.5">
              <motion.div 
                 initial={{ width: 0 }}
                 whileInView={{ width: `${skill.level}%` }}
@@ -80,7 +79,7 @@ function SkillCard({ skill, index }: { skill: any; index: number }) {
 
 // ─── Main Component ───
 export function Skills() {
-  const categories = ["Frontend", "Backend", "DevOps", "Tools"];
+  const categories = ["Frontend", "Backend", "Database", "Tools"];
 
   return (
     <section id="skills" className="section-padding container-max relative">
@@ -94,14 +93,14 @@ export function Skills() {
         transition={{ duration: 0.7 }}
         className="mb-16 text-center"
       >
-        <span className="font-mono text-primary text-sm tracking-widest uppercase mb-2 block">
+        <span className="font-mono text-[#00a86b] dark:text-[#00f5a0] text-sm tracking-widest uppercase mb-2 block font-bold">
           02. Expertise
         </span>
         <h2 className="section-title">
           My <span className="gradient-text">Tech</span> Stack
         </h2>
-        <p className="section-subtitle mx-auto">
-          Technologies I've been working with recently
+        <p className="section-subtitle mx-auto font-medium text-slate-600 dark:text-text-secondary">
+          Technologies & tools from my professional production experience
         </p>
       </motion.div>
 
@@ -127,7 +126,7 @@ export function Skills() {
                 >
                   {category}
                 </div>
-                <div className="h-px bg-slate-200 dark:bg-white/10 flex-1" />
+                <div className="h-px bg-slate-300 dark:bg-white/10 flex-1" />
               </motion.div>
 
               {/* Grid */}

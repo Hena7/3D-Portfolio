@@ -123,19 +123,19 @@ export function Hero() {
           {/* Typing Role */}
           <motion.div
             variants={itemVariants}
-            className="font-mono text-xl sm:text-2xl text-[#0099bb] dark:text-[#00d4ff] mb-6 h-9"
+            className="font-mono text-xl sm:text-2xl font-bold text-[#0077aa] dark:text-[#00d4ff] mb-6 h-9"
           >
             <TypeAnimation
               sequence={[
-                "Full Stack Developer",
+                "Full-Stack Developer",
                 2000,
-                "React & Next.js Engineer",
+                "React.js & Next.js Engineer",
                 2000,
-                "Spring Boot Backend Dev",
+                "Node.js & Express Specialist",
                 2000,
-                "UI/UX Enthusiast",
+                "Spring Boot & PostgreSQL Dev",
                 2000,
-                "Open Source Contributor",
+                "Software Engineering @ Mekelle Univ",
                 2000,
               ]}
               wrapper="span"
@@ -148,9 +148,9 @@ export function Hero() {
           {/* Description */}
           <motion.p
             variants={itemVariants}
-            className="text-text-secondary text-lg leading-relaxed mb-10 max-w-lg"
+            className="text-slate-700 dark:text-slate-300 text-lg leading-relaxed mb-10 max-w-xl font-medium"
           >
-            {personalInfo.tagline}
+            {personalInfo.summary}
           </motion.p>
 
           {/* CTA Buttons */}
@@ -170,7 +170,7 @@ export function Hero() {
               onClick={scrollToContact}
               onMouseEnter={() => sound.playHover()}
               id="hero-contact-me"
-              className="btn-outline text-base px-8 py-4"
+              className="btn-outline text-base px-8 py-4 font-bold text-slate-900 dark:text-white"
             >
               Contact Me
             </button>
@@ -190,13 +190,13 @@ export function Hero() {
                 aria-label={label}
                 onMouseEnter={() => sound.playHover()}
                 onClick={() => sound.playClick()}
-                className="w-10 h-10 bg-white/80 dark:bg-white/5 glass rounded-xl flex items-center justify-center text-text-secondary hover:text-[#00a86b] dark:hover:text-[#00f5a0] border border-slate-200 dark:border-white/10 hover:border-[#00a86b]/40 dark:hover:border-[#00f5a0]/40 transition-all duration-200 hover:shadow-neon-emerald hover:scale-110"
+                className="w-11 h-11 bg-white dark:bg-white/5 rounded-xl flex items-center justify-center text-slate-800 dark:text-slate-200 hover:text-[#00a86b] dark:hover:text-[#00f5a0] border border-slate-300 dark:border-white/10 hover:border-[#00a86b] dark:hover:border-[#00f5a0] transition-all duration-200 hover:shadow-md hover:scale-110 shadow-sm dark:shadow-none"
               >
-                <Icon size={18} />
+                <Icon size={19} strokeWidth={2.3} />
               </a>
             ))}
 
-            <span className="text-text-muted text-sm ml-2 font-mono">
+            <span className="text-slate-700 dark:text-slate-300 text-sm ml-2 font-mono font-bold">
               @{personalInfo.github.split("/").pop()}
             </span>
           </motion.div>
