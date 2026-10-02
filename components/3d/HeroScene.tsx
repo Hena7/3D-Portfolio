@@ -2,7 +2,7 @@
 
 import { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
-import { Stars, Environment, OrbitControls } from "@react-three/drei";
+import { Stars, Environment, Lightformer, OrbitControls } from "@react-three/drei";
 import { EffectComposer, Bloom, Noise, Vignette } from "@react-three/postprocessing";
 import { useMousePosition } from "@/hooks/useMousePosition";
 import { useTheme } from "@/components/ui/ThemeProvider";
@@ -89,8 +89,42 @@ export function HeroScene({ activeScene = "core" }: HeroSceneProps) {
           </group>
         )}
 
-        {/* ── Environment map for metallic reflections ── */}
-        <Environment preset={isDark ? "night" : "city"} />
+        {/* ── Environment map for metallic reflections (Procedural, zero remote network fetch) ── */}
+        <Environment key={isDark ? "dark-env" : "light-env"} resolution={256}>
+          <group rotation={[-Math.PI / 3, 0, 1]}>
+            <Lightformer
+              form="circle"
+              intensity={isDark ? 3.5 : 2}
+              rotation-x={Math.PI / 2}
+              position={[0, 5, -9]}
+              scale={2}
+              color={isDark ? "#00d4ff" : "#38bdf8"}
+            />
+            <Lightformer
+              form="ring"
+              intensity={isDark ? 2.5 : 1.8}
+              rotation-y={Math.PI / 2}
+              position={[-5, 1, -1]}
+              scale={2}
+              color={isDark ? "#00f5a0" : "#ffffff"}
+            />
+            <Lightformer
+              form="rect"
+              intensity={isDark ? 2.0 : 1.2}
+              position={[10, 1, 0]}
+              scale={8}
+              color={isDark ? "#00d4ff" : "#cbd5e1"}
+              target={[0, 0, 0]}
+            />
+            <Lightformer
+              form="circle"
+              intensity={isDark ? 1.5 : 0.8}
+              position={[0, -5, 0]}
+              scale={3}
+              color={isDark ? "#ffb800" : "#f8fafc"}
+            />
+          </group>
+        </Environment>
 
         {/* ── Interactive gentle orbit controls ── */}
         <OrbitControls enablePan={false} enableZoom={false} rotateSpeed={0.5} maxPolarAngle={Math.PI / 1.7} minPolarAngle={Math.PI / 3} />
