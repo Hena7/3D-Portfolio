@@ -117,7 +117,7 @@ export function About() {
   ];
 
   return (
-    <section id="about" className="section-padding container-max relative">
+    <section id="about" className="section-padding container-max relative overflow-hidden">
       {/* Section Header */}
       <FadeIn className="mb-16">
         <span className="font-mono text-[#00a86b] dark:text-[#00f5a0] text-sm tracking-widest uppercase font-bold">

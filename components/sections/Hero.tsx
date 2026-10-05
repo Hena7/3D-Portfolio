@@ -48,7 +48,7 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center overflow-hidden"
+      className="relative min-h-[100svh] flex items-center overflow-hidden pt-28 pb-16 sm:py-28 lg:py-32"
     >
       {/* ── 3D Canvas (right side / background) ── */}
       <div className="absolute inset-0 z-0">
@@ -58,8 +58,8 @@ export function Hero() {
       </div>
 
       {/* ── Interactive 3D Scene Switcher HUD ── */}
-      <div className="absolute right-4 sm:right-8 top-20 sm:top-24 z-20 flex flex-col items-end gap-1.5 pointer-events-auto">
-        <div className="flex items-center gap-1 p-1 rounded-xl bg-white/80 dark:bg-surface/80 glass border border-slate-200 dark:border-white/10 backdrop-blur-md shadow-card transition-colors duration-300">
+      <div className="absolute top-[68px] sm:top-24 left-1/2 -translate-x-1/2 sm:left-auto sm:right-8 sm:translate-x-0 z-20 flex flex-col items-center sm:items-end gap-1.5 pointer-events-auto">
+        <div className="flex items-center gap-1 p-1 rounded-xl bg-white/85 dark:bg-surface/85 glass border border-slate-200 dark:border-white/10 backdrop-blur-md shadow-card transition-colors duration-300">
           {[
             { id: "core", label: "Quantum Core" },
             { id: "workspace", label: "DNA Helix" },
@@ -72,20 +72,17 @@ export function Hero() {
                 setSceneMode(mode.id as SceneMode);
               }}
               onMouseEnter={() => sound.playHover()}
-              className={`px-3 py-1.5 rounded-lg text-xs font-mono font-medium transition-all ${sceneMode === mode.id
+              className={`px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg text-[11px] sm:text-xs font-mono font-medium transition-all whitespace-nowrap ${
+                sceneMode === mode.id
                   ? "bg-[#00f5a0] text-black shadow-neon-emerald font-semibold"
                   : "text-slate-600 dark:text-text-secondary hover:text-slate-900 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5"
-                }`}
+              }`}
             >
               {mode.label}
             </button>
           ))}
         </div>
-        <div className="flex items-center gap-1.5 text-[10px] text-text-muted font-mono tracking-wider uppercase pr-1">
-          <Orbit size={11} className="text-[#00a86b] dark:text-[#00f5a0]" />
-          <span>Interactive 3D // Drag to Orbit</span>
-        </div>
-      </div>
+      </div> 
 
       {/* ── Gradient fade to let text be readable (Theme Adaptive) ── */}
       <div
@@ -93,28 +90,17 @@ export function Hero() {
       />
 
       {/* ── Text Content ── */}
-      <div className="relative z-10 container-max section-padding w-full">
+      <div className="relative z-10 container-max px-4 sm:px-6 lg:px-8 w-full pt-10 sm:pt-0">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
           className="max-w-2xl"
         >
-          {/* Greeting badge */}
-          {/* <motion.div variants={itemVariants}>
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/70 dark:bg-transparent glass border border-[#00a86b]/40 dark:border-[#00f5a0]/40 text-[#00a86b] dark:text-[#00f5a0] text-sm font-medium mb-6 backdrop-blur-md">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00f5a0] opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#00a86b] dark:bg-[#00f5a0]" />
-              </span>
-              Available for opportunities // 2026
-            </span>
-          </motion.div> */}
-
           {/* Name */}
           <motion.h1
             variants={itemVariants}
-            className="font-display text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight mb-4 leading-none"
+            className="font-display text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight mb-3 sm:mb-4 leading-[1.08]"
           >
             <span className="block text-slate-900 dark:text-white">Hi, I&apos;m</span>
             <span className="block gradient-text mt-1">{personalInfo.name}</span>
@@ -123,7 +109,7 @@ export function Hero() {
           {/* Typing Role */}
           <motion.div
             variants={itemVariants}
-            className="font-mono text-xl sm:text-2xl font-bold text-[#0077aa] dark:text-[#00d4ff] mb-6 h-9"
+            className="font-mono text-lg sm:text-2xl font-bold text-[#0077aa] dark:text-[#00d4ff] mb-4 sm:mb-6 min-h-[2rem]"
           >
             <TypeAnimation
               sequence={[
@@ -148,7 +134,7 @@ export function Hero() {
           {/* Description */}
           <motion.p
             variants={itemVariants}
-            className="text-slate-700 dark:text-slate-300 text-lg leading-relaxed mb-10 max-w-xl font-medium"
+            className="text-slate-700 dark:text-slate-300 text-sm sm:text-base lg:text-lg leading-relaxed mb-6 sm:mb-10 max-w-xl font-medium"
           >
             {personalInfo.summary}
           </motion.p>
@@ -156,13 +142,13 @@ export function Hero() {
           {/* CTA Buttons */}
           <motion.div
             variants={itemVariants}
-            className="flex flex-wrap items-center gap-4 mb-12"
+            className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 mb-8 sm:mb-12"
           >
             <button
               onClick={scrollToProjects}
               onMouseEnter={() => sound.playHover()}
               id="hero-view-projects"
-              className="btn-emerald text-base px-8 py-4 font-bold"
+              className="btn-emerald text-sm sm:text-base px-6 sm:px-8 py-3.5 sm:py-4 font-bold justify-center"
             >
               View Projects
             </button>
@@ -170,7 +156,7 @@ export function Hero() {
               onClick={scrollToContact}
               onMouseEnter={() => sound.playHover()}
               id="hero-contact-me"
-              className="btn-outline text-base px-8 py-4 font-bold text-slate-900 dark:text-white"
+              className="btn-outline text-sm sm:text-base px-6 sm:px-8 py-3.5 sm:py-4 font-bold text-slate-900 dark:text-white justify-center"
             >
               Contact Me
             </button>
@@ -179,7 +165,7 @@ export function Hero() {
           {/* Social Links */}
           <motion.div
             variants={itemVariants}
-            className="flex items-center gap-4"
+            className="flex flex-wrap items-center gap-3 sm:gap-4"
           >
             {socialLinks.map(({ href, Icon, label }) => (
               <a
@@ -190,25 +176,25 @@ export function Hero() {
                 aria-label={label}
                 onMouseEnter={() => sound.playHover()}
                 onClick={() => sound.playClick()}
-                className="w-11 h-11 bg-white dark:bg-white/5 rounded-xl flex items-center justify-center text-slate-800 dark:text-slate-200 hover:text-[#00a86b] dark:hover:text-[#00f5a0] border border-slate-300 dark:border-white/10 hover:border-[#00a86b] dark:hover:border-[#00f5a0] transition-all duration-200 hover:shadow-md hover:scale-110 shadow-sm dark:shadow-none"
+                className="w-10 h-10 sm:w-11 sm:h-11 bg-white dark:bg-white/5 rounded-xl flex items-center justify-center text-slate-800 dark:text-slate-200 hover:text-[#00a86b] dark:hover:text-[#00f5a0] border border-slate-300 dark:border-white/10 hover:border-[#00a86b] dark:hover:border-[#00f5a0] transition-all duration-200 hover:shadow-md hover:scale-110 shadow-sm dark:shadow-none"
               >
-                <Icon size={19} strokeWidth={2.3} />
+                <Icon size={18} strokeWidth={2.3} />
               </a>
             ))}
 
-            <span className="text-slate-700 dark:text-slate-300 text-sm ml-2 font-mono font-bold">
-              @{personalInfo.github.split("/").pop()}
-            </span>
+            <span className="text-slate-700 dark:text-slate-300 text-xs sm:text-sm ml-1 sm:ml-2 font-mono font-bold truncate">
+              {/* @{personalInfo.github.split("/").pop()} */}
+            </span> 
           </motion.div>
         </motion.div>
       </div>
 
-      {/* ── Scroll indicator ── */}
+      {/* ── Scroll indicator (desktop only) ── */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2, duration: 1 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-text-muted"
+        className="hidden sm:flex absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 z-10 flex-col items-center gap-2 text-text-muted"
       >
         <span className="text-xs tracking-widest uppercase font-mono text-[#00f5a0]/80">Scroll</span>
         <motion.div

@@ -54,7 +54,7 @@ export function Terminal() {
         output = (
           <div className="space-y-1.5 text-xs text-slate-600 dark:text-text-secondary">
             <p className="text-slate-900 dark:text-white font-semibold">Available Commands:</p>
-            <div className="grid grid-cols-2 gap-x-4 gap-y-1">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1">
               <div><span className="text-[#00a86b] dark:text-[#00f5a0]">bio</span> - Who I am</div>
               <div><span className="text-[#0099bb] dark:text-[#00d4ff]">skills</span> - Tech stack breakdown</div>
               <div><span className="text-[#d97706] dark:text-[#ffb800]">projects</span> - Featured architectures</div>
@@ -165,7 +165,7 @@ export function Terminal() {
             henock@terminal: ~ (zsh)
           </span>
         </div>
-        <div className="flex items-center gap-1 text-[11px] text-[#00a86b] dark:text-[#00f5a0]/70 font-semibold">
+        <div className="hidden sm:flex items-center gap-1 text-[11px] text-[#00a86b] dark:text-[#00f5a0]/70 font-semibold">
           <Sparkles size={11} />
           <span>Interactive CLI</span>
         </div>

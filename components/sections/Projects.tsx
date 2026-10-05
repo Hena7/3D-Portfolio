@@ -61,7 +61,7 @@ export function Projects() {
               }}
               onMouseEnter={() => sound.playHover()}
               className={cn(
-                "relative px-5 py-2 rounded-xl text-sm font-medium transition-all duration-300 font-mono",
+                "relative px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 font-mono",
                 isActive
                   ? "text-black font-semibold"
                   : "text-slate-600 dark:text-text-secondary hover:text-slate-900 dark:hover:text-white glass-strong border border-slate-200 dark:border-white/10"
@@ -101,7 +101,7 @@ export function Projects() {
                     <div className="w-2.5 h-2.5 rounded-full bg-amber-500/70" />
                     <div className="w-2.5 h-2.5 rounded-full bg-[#00f5a0]/70" />
                   </div>
-                  <div className="text-[11px] font-mono text-slate-500 dark:text-text-muted px-2 py-0.5 rounded bg-slate-200/60 dark:bg-white/5 border border-slate-300/60 dark:border-white/5 truncate max-w-[210px]">
+                  <div className="text-[11px] font-mono text-slate-500 dark:text-text-muted px-2 py-0.5 rounded bg-slate-200/60 dark:bg-white/5 border border-slate-300/60 dark:border-white/5 truncate max-w-[140px] sm:max-w-[210px]">
                     {project.live && project.live !== "#"
                       ? project.live.replace(/^https?:\/\//, "")
                       : `${project.id}.vercel.app`}
