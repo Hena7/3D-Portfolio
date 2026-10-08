@@ -43,7 +43,7 @@ export interface Skill {
 export const skills: Skill[] = [
   // Front-end (from Resume)
   { name: "React.js", icon: "SiReact", category: "Frontend", level: 95, color: "#0284c7" },
-  { name: "Next.js", icon: "SiNextdotjs", category: "Frontend", level: 94, color: "#0f172a" },
+  { name: "Next.js", icon: "SiNextdotjs", category: "Frontend", level: 94, color: "#f44c51ff" },
   { name: "TypeScript", icon: "SiTypescript", category: "Frontend", level: 90, color: "#3178C6" },
   { name: "TailwindCSS", icon: "SiTailwindcss", category: "Frontend", level: 92, color: "#06B6D4" },
   { name: "HTML5 & CSS3", icon: "SiHtml5", category: "Frontend", level: 95, color: "#E34F26" },
@@ -51,7 +51,7 @@ export const skills: Skill[] = [
 
   // Back-end (from Resume)
   { name: "Node.js", icon: "SiNodedotjs", category: "Backend", level: 92, color: "#339933" },
-  { name: "Express.js", icon: "SiExpress", category: "Backend", level: 90, color: "#1e293b" },
+  { name: "Express.js", icon: "SiExpress", category: "Backend", level: 90, color: "#4882dfff" },
   { name: "NestJS", icon: "SiNestjs", category: "Backend", level: 82, color: "#E0234E" },
   { name: "Spring Boot", icon: "SiSpring", category: "Backend", level: 86, color: "#6DB33F" },
 
@@ -63,7 +63,7 @@ export const skills: Skill[] = [
 
   // Tools (from Resume)
   { name: "Git", icon: "SiGit", category: "Tools", level: 94, color: "#F05032" },
-  { name: "GitHub", icon: "SiGithub", category: "Tools", level: 94, color: "#0f172a" },
+  { name: "GitHub", icon: "SiGithub", category: "Tools", level: 94, color: "#48ed7cff" },
   { name: "Docker", icon: "SiDocker", category: "Tools", level: 82, color: "#2496ED" },
   { name: "Swagger", icon: "SiSwagger", category: "Tools", level: 88, color: "#85EA2D" },
   { name: "Trello", icon: "SiTrello", category: "Tools", level: 85, color: "#0052CC" },

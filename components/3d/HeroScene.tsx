@@ -1,95 +1,76 @@
 "use client";
 
-import { Suspense } from "react";
+import { Suspense, useState, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
 import { Stars, Environment, Lightformer, OrbitControls } from "@react-three/drei";
 import { EffectComposer, Bloom, Noise, Vignette } from "@react-three/postprocessing";
 import { useMousePosition } from "@/hooks/useMousePosition";
 import { useTheme } from "@/components/ui/ThemeProvider";
-import { TechCore } from "./TechCore";
-import { FloatingWorkspace } from "./workspace/FloatingWorkspace";
-import { MiniCity } from "./mini-city/MiniCity";
-
-export type SceneMode = "core" | "workspace" | "city";
-
-interface HeroSceneProps {
-  activeScene?: SceneMode;
-  wireframe?: boolean;
-}
+import { SciFiComputer } from "./SciFiComputer";
 
 /**
  * HeroScene — Three.js Canvas for the portfolio hero section.
- * Supports dynamic switching between:
- *   1. TechCore (Abstract digital quantum sphere)
- *   2. FloatingWorkspace (Isometric developer desk + glowing laptop)
- *   3. MiniCity (Cyberpunk floating island city)
+ * Renders the high-fidelity sci-fi computer terminal from sci_-_fi_computer_game_ready.glb
+ * with dynamic lighting, interactive mouse parallax, floating physics, and OrbitControls.
  */
-export function HeroScene({ activeScene = "core" }: HeroSceneProps) {
+export function HeroScene() {
   const { normalX, normalY } = useMousePosition();
   const { theme } = useTheme();
   const isDark = theme === "dark";
 
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   return (
     <Canvas
-      camera={{ position: [0, 0, 6.5], fov: 45 }}
-      gl={{ antialias: true, alpha: true, stencil: false, depth: true }}
+      camera={{ position: [0, 0.4, 5.8], fov: 45 }}
+      gl={{ antialias: true, alpha: true, stencil: false, depth: true, powerPreference: "high-performance" }}
       dpr={[1, 2]}
       style={{ background: "transparent" }}
     >
       <Suspense fallback={null}>
+        {/* ── Lighting Rig tailored for metallic reflections & cyber glow ── */}
+        <ambientLight intensity={isDark ? 0.35 : 0.9} color={isDark ? "#08131d" : "#f1f5f9"} />
 
-        {/* ── Lighting Rig (Zero Purple, Theme Adaptive) ── */}
-
-        {/* Ambient lighting */}
-        <ambientLight intensity={isDark ? 0.16 : 0.8} color={isDark ? "#051015" : "#e2e8f0"} />
-
-        {/* Cool key light from upper-left */}
+        {/* Key light from upper-left */}
         <directionalLight
-          position={[-5, 8, 4]}
-          intensity={isDark ? 0.7 : 1.2}
-          color="#c8f5ff"
+          position={[-4, 7, 5]}
+          intensity={isDark ? 1.6 : 2.2}
+          color="#e0f7ff"
         />
 
-        {/* Cyan fill from front-right */}
-        <pointLight position={[3, 2, 5]} intensity={isDark ? 1.4 : 1.8} color="#00d4ff" distance={15} decay={2} />
+        {/* Cyan front-right fill */}
+        <pointLight position={[3.5, 2.5, 4]} intensity={isDark ? 2.5 : 2.0} color="#00d4ff" distance={12} decay={2} />
 
-        {/* Cyber Emerald counter-light from behind */}
-        <pointLight position={[-3, 1, -7]} intensity={isDark ? 2.2 : 2.5} color="#00f5a0" distance={15} decay={2} />
+        {/* Cyber emerald counter-light */}
+        <pointLight position={[-3.5, 1, -4]} intensity={isDark ? 3.0 : 2.5} color="#00f5a0" distance={12} decay={2} />
 
-        {/* Solar Amber accent — bottom right */}
-        <pointLight position={[6, -3, 2]} intensity={isDark ? 1.0 : 1.4} color="#ffb800" distance={12} decay={2} />
+        {/* Solar amber bottom accent */}
+        <pointLight position={[4, -3, 2]} intensity={isDark ? 1.5 : 1.2} color="#ffb800" distance={10} decay={2} />
 
         {/* ── Star field (Dark mode only) ── */}
         {isDark && (
           <Stars
-            radius={100}
-            depth={50}
-            count={2000}
-            factor={3.5}
-            saturation={0.15}
+            radius={80}
+            depth={40}
+            count={1800}
+            factor={3}
+            saturation={0.2}
             fade
-            speed={0.25}
+            speed={0.2}
           />
         )}
 
-        {/* ── Dynamic 3D Scene Composition ── */}
-        {activeScene === "core" && (
-          <TechCore mouseX={normalX} mouseY={normalY} />
-        )}
+        {/* ── The Sci-Fi Computer 3D Model ── */}
+        <SciFiComputer mouseX={normalX} mouseY={normalY} isMobile={isMobile} />
 
-        {activeScene === "workspace" && (
-          <group position={[0, -0.3, 0]} scale={0.78}>
-            <FloatingWorkspace mouseX={normalX} mouseY={normalY} />
-          </group>
-        )}
-
-        {activeScene === "city" && (
-          <group position={[0, -0.7, 0]} scale={0.88}>
-            <MiniCity mouseX={normalX} mouseY={normalY} />
-          </group>
-        )}
-
-        {/* ── Environment map for metallic reflections (Procedural, zero remote network fetch) ── */}
+        {/* ── Environment map for metallic reflections ── */}
         <Environment key={isDark ? "dark-env" : "light-env"} resolution={256}>
           <group rotation={[-Math.PI / 3, 0, 1]}>
             <Lightformer
@@ -97,50 +78,48 @@ export function HeroScene({ activeScene = "core" }: HeroSceneProps) {
               intensity={isDark ? 3.5 : 2}
               rotation-x={Math.PI / 2}
               position={[0, 5, -9]}
-              scale={2}
+              scale={3}
               color={isDark ? "#00d4ff" : "#38bdf8"}
             />
             <Lightformer
               form="ring"
-              intensity={isDark ? 2.5 : 1.8}
+              intensity={isDark ? 3.0 : 2.0}
               rotation-y={Math.PI / 2}
-              position={[-5, 1, -1]}
-              scale={2}
+              position={[-5, 2, -1]}
+              scale={2.5}
               color={isDark ? "#00f5a0" : "#ffffff"}
             />
             <Lightformer
               form="rect"
-              intensity={isDark ? 2.0 : 1.2}
-              position={[10, 1, 0]}
-              scale={8}
+              intensity={isDark ? 2.5 : 1.5}
+              position={[8, 2, 2]}
+              scale={6}
               color={isDark ? "#00d4ff" : "#cbd5e1"}
               target={[0, 0, 0]}
-            />
-            <Lightformer
-              form="circle"
-              intensity={isDark ? 1.5 : 0.8}
-              position={[0, -5, 0]}
-              scale={3}
-              color={isDark ? "#ffb800" : "#f8fafc"}
             />
           </group>
         </Environment>
 
-        {/* ── Interactive gentle orbit controls ── */}
-        <OrbitControls enablePan={false} enableZoom={false} rotateSpeed={0.5} maxPolarAngle={Math.PI / 1.7} minPolarAngle={Math.PI / 3} />
+        {/* ── Interactive OrbitControls ── */}
+        <OrbitControls
+          enablePan={false}
+          enableZoom={false}
+          rotateSpeed={0.6}
+          maxPolarAngle={Math.PI / 1.7}
+          minPolarAngle={Math.PI / 3.2}
+        />
 
-        {/* ── Post-processing ── */}
+        {/* ── Post-processing Bloom for glowing sci-fi holographic screens ── */}
         <EffectComposer>
           <Bloom
-            luminanceThreshold={isDark ? 0.55 : 0.65}
+            luminanceThreshold={isDark ? 0.45 : 0.65}
             mipmapBlur
-            intensity={isDark ? 2.0 : 1.2}
-            radius={0.75}
+            intensity={isDark ? 1.8 : 1.0}
+            radius={0.7}
           />
-          <Noise opacity={isDark ? 0.03 : 0.015} />
-          <Vignette offset={0.28} darkness={isDark ? 0.55 : 0} />
+          <Noise opacity={isDark ? 0.025 : 0.01} />
+          <Vignette offset={0.3} darkness={isDark ? 0.5 : 0} />
         </EffectComposer>
-
       </Suspense>
     </Canvas>
   );

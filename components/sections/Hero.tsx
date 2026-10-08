@@ -7,7 +7,6 @@ import { TypeAnimation } from "react-type-animation";
 import { ArrowDown, Github, Linkedin, Mail, Send, Orbit } from "lucide-react";
 import { personalInfo } from "@/lib/data";
 import { sound } from "@/lib/audio";
-import type { SceneMode } from "@/components/3d/HeroScene";
 
 // Lazy-load the 3D canvas — prevents SSR issues with Three.js
 const HeroScene = dynamic(
@@ -34,8 +33,6 @@ const itemVariants = {
 };
 
 export function Hero() {
-  const [sceneMode, setSceneMode] = useState<SceneMode>("core");
-
   const scrollToProjects = () => {
     sound.playClick();
     document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
@@ -52,36 +49,20 @@ export function Hero() {
     >
       {/* ── 3D Canvas (right side / background) ── */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute right-0 top-0 w-full md:w-[60%] h-full opacity-95">
-          <HeroScene activeScene={sceneMode} />
+        <div className="absolute right-0 top-40 w-full md:w-[60%] h-full opacity-95">
+          <HeroScene />
         </div>
       </div>
 
-      {/* ── Interactive 3D Scene Switcher HUD ── */}
-      <div className="absolute top-[68px] sm:top-24 left-1/2 -translate-x-1/2 sm:left-auto sm:right-8 sm:translate-x-0 z-20 flex flex-col items-center sm:items-end gap-1.5 pointer-events-auto">
-        <div className="flex items-center gap-1 p-1 rounded-xl bg-white/85 dark:bg-surface/85 glass border border-slate-200 dark:border-white/10 backdrop-blur-md shadow-card transition-colors duration-300">
-          {[
-            { id: "core", label: "Quantum Core" },
-            { id: "workspace", label: "DNA Helix" },
-            { id: "city", label: "Holo Planet" },
-          ].map((mode) => (
-            <button
-              key={mode.id}
-              onClick={() => {
-                sound.playModeSwitch();
-                setSceneMode(mode.id as SceneMode);
-              }}
-              onMouseEnter={() => sound.playHover()}
-              className={`px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg text-[11px] sm:text-xs font-mono font-medium transition-all whitespace-nowrap ${
-                sceneMode === mode.id
-                  ? "bg-[#00f5a0] text-black shadow-neon-emerald font-semibold"
-                  : "text-slate-600 dark:text-text-secondary hover:text-slate-900 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5"
-              }`}
-            >
-              {mode.label}
-            </button>
-          ))}
-        </div>
+      {/* ── Interactive 3D Status Badge (Desktop) ── */}
+      <div className="absolute top-20 sm:top-24 right-4 sm:right-8 z-20 hidden sm:flex items-center gap-2.5 px-3.5 py-1.5 rounded-xl bg-white/85 dark:bg-surface/85 glass border border-slate-200 dark:border-white/10 backdrop-blur-md shadow-card font-mono text-xs text-text-secondary pointer-events-auto">
+        <span className="relative flex h-2 w-2">
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00f5a0] opacity-75" />
+          <span className="relative inline-flex rounded-full h-2 w-2 bg-[#00a86b] dark:bg-[#00f5a0]" />
+        </span>
+         <span className="text-slate-800 dark:text-slate-200 font-bold tracking-wider uppercase text-[11px]">
+          
+        </span> 
       </div> 
 
       {/* ── Gradient fade to let text be readable (Theme Adaptive) ── */}
